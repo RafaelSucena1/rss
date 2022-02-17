@@ -4,10 +4,7 @@
 package rss.app;
 
 
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.Accumulator;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.RedactableSignature;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.RedactableSignatureException;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.WPProvider;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.*;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignature;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignatureException;
@@ -25,10 +22,12 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class App {
-    public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException {
+    public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException, RedactableSignatureException {
         System.out.println("hi there");
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
         DoStuff upps = new DoStuff();
@@ -40,8 +39,8 @@ public class App {
 }
 
 class DoStuff {
-    KeyPair gsrssKeyPair;
     RedactableSignature rss;
+    private PublicKey publicKey;
 
     protected static byte[][] TEST_MESSAGE = {
             "This is a test".getBytes(),
@@ -55,29 +54,50 @@ class DoStuff {
                     " explicabo est sint vel omnis laborum aperiam.").getBytes(),
     };
 
-    DoStuff() throws NoSuchAlgorithmException, InvalidKeyException, IOException {
+    DoStuff() throws NoSuchAlgorithmException, InvalidKeyException, IOException, RedactableSignatureException {
         java.security.Security.addProvider(new WPProvider());
-        KeyPairGenerator gsrssGenerator = KeyPairGenerator.getInstance("GSRSSwithRSAandBPA");
+        KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
 
-        KeyPair gsrssKeyPair = gsrssGenerator.generateKeyPair();
+
+        KeyPair glRssKeyPair = glRssGenerator.generateKeyPair();
         System.out.println("finished generating keypair");
+        publicKey = glRssKeyPair.getPublic();
 
-        rss = RedactableSignature.getInstance("GSRSSwithRSAandBPA");
+        rss = RedactableSignature.getInstance("GLRSSwithRSAandBPA");
 
-        rss.initSign(gsrssKeyPair);
+        rss.initSign(glRssKeyPair);
         signDocByLine();
     }
 
 
-    public void signDocByLine() throws IOException, RedactableSignatureException {
+    public void signDocByLine() throws IOException, RedactableSignatureException, InvalidKeyException {
         List<String> linesList = Files.readAllLines(Paths.get("app/testdata/test1.xml"));
         String[] linesArray = linesList.toArray(new String[0]);
         byte[] bArray;
-        for(String s : linesArray){
-            bArray = s.getBytes(StandardCharsets.UTF_8);
-            rss.addPart(bArray, s.startsWith("  ~"));
+        int max = linesArray.length - 1;
+        byte[][] linesAsBytes = new byte[max][];
+
+        List<Identifier> rssIdentifiers = new ArrayList<Identifier>();
+        List<Identifier> notRssIdentifiers = new ArrayList<Identifier>();
+
+        byte[] chunk;
+        for (String line : linesArray) {
+            chunk = line.getBytes(StandardCharsets.UTF_8);
+            if(line.startsWith("  ~")){
+                rssIdentifiers.add(rss.addPart(chunk));
+            } else {
+                notRssIdentifiers.add(rss.addPart(chunk, false));
+            }
         }
-        rss.sign();
+
+        SignatureOutput signatureOutput = rss.sign();
+
+        /*for (Identifier identifier : rssIdentifiers){
+
+            rss.addIdentifier(identifier);
+        }*/
+        rss.initRedact(publicKey);
+        SignatureOutput newSign = rss.redact(signatureOutput);
     }
 }
 
