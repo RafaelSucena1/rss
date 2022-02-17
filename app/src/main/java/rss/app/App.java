@@ -3,11 +3,12 @@
  */
 package rss.app;
 
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.*;
+
 
 
 public class App {
     public static void main(String[] args) {
         System.out.print("hi there");
+
     }
 }

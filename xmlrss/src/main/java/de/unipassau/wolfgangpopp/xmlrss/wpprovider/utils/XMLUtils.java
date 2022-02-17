@@ -25,12 +25,6 @@ import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignatureExc
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.namespace.QName;
-import javax.xml.transform.dom.DOMResult;
 
 /**
  * The <code>XMLUtils</code> class contains helper functions for XML operations.
