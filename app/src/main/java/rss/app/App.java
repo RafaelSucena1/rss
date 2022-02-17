@@ -4,11 +4,81 @@
 package rss.app;
 
 
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.Accumulator;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.RedactableSignature;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.RedactableSignatureException;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.WPProvider;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignature;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignatureException;
+import org.w3c.dom.Document;
 
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.security.*;
+import java.util.List;
 
 public class App {
-    public static void main(String[] args) {
-        System.out.print("hi there");
+    public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException {
+        System.out.println("hi there");
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        DoStuff upps = new DoStuff();
+
+
+        System.out.println("bye");
 
     }
 }
+
+class DoStuff {
+    KeyPair gsrssKeyPair;
+    RedactableSignature rss;
+
+    protected static byte[][] TEST_MESSAGE = {
+            "This is a test".getBytes(),
+            "This is still a test".getBytes(),
+            "Moar testing".getBytes(),
+            "oi23jröoqi32joqjslkjflaskjdflk".getBytes(),
+            "What else could I write here?".getBytes(),
+            "21 is only half the truth".getBytes(),
+            ("Doloremque velit at quia ad corporis nemo. Quod eveniet minima quasi minima dolorem consectetur." +
+                    " Debitis voluptas sunt dolores. Vel voluptatem perspiciatis beatae vel sequi et ullam. Ullam" +
+                    " explicabo est sint vel omnis laborum aperiam.").getBytes(),
+    };
+
+    DoStuff() throws NoSuchAlgorithmException, InvalidKeyException, IOException {
+        java.security.Security.addProvider(new WPProvider());
+        KeyPairGenerator gsrssGenerator = KeyPairGenerator.getInstance("GSRSSwithRSAandBPA");
+
+        KeyPair gsrssKeyPair = gsrssGenerator.generateKeyPair();
+        System.out.println("finished generating keypair");
+
+        rss = RedactableSignature.getInstance("GSRSSwithRSAandBPA");
+
+        rss.initSign(gsrssKeyPair);
+        signDocByLine();
+    }
+
+
+    public void signDocByLine() throws IOException, RedactableSignatureException {
+        List<String> linesList = Files.readAllLines(Paths.get("app/testdata/test1.xml"));
+        String[] linesArray = linesList.toArray(new String[0]);
+        byte[] bArray;
+        for(String s : linesArray){
+            bArray = s.getBytes(StandardCharsets.UTF_8);
+            rss.addPart(bArray, s.startsWith("  ~"));
+        }
+        rss.sign();
+    }
+}
+
+
