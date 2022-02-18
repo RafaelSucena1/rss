@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  -->
+
+<container xmlns="https://sec.fim.uni-passau.de/psrss">
+    <item id="i1">
+        <list id="l1">
+            <entry id="e1">entry1</entry>
+            <entry id="e2">entry2</entry>
+            <entry id="e3">entry3</entry>
+        </list>
+    </item>
+    <item id="i2">
+        <struct id="s1">
+            <header>head</header>
+            <body>
+                <data>data</data>
+            </body>
+            <footer>foot</footer>
+        </struct>
+    </item>
+    <item id="i3">
+        <data id="d1">data</data>
+    </item>
+</container>

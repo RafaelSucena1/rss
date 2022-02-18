@@ -5,6 +5,7 @@ package rss.app;
 
 
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.*;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignature;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignatureException;
@@ -22,56 +23,49 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class App {
-    public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException, RedactableSignatureException {
-        System.out.println("hi there");
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        DoStuff upps = new DoStuff();
-
-
-        System.out.println("bye");
-
-    }
-}
-
-class DoStuff {
-    RedactableSignature rss;
+    RedactableSignature rss1;
+    RedactableSignature rss2;
     private PublicKey publicKey;
+    private KeyPair   glRssKeyPair;
 
-    protected static byte[][] TEST_MESSAGE = {
-            "This is a test".getBytes(),
-            "This is still a test".getBytes(),
-            "Moar testing".getBytes(),
-            "oi23jröoqi32joqjslkjflaskjdflk".getBytes(),
-            "What else could I write here?".getBytes(),
-            "21 is only half the truth".getBytes(),
-            ("Doloremque velit at quia ad corporis nemo. Quod eveniet minima quasi minima dolorem consectetur." +
-                    " Debitis voluptas sunt dolores. Vel voluptatem perspiciatis beatae vel sequi et ullam. Ullam" +
-                    " explicabo est sint vel omnis laborum aperiam.").getBytes(),
-    };
+    public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException, RedactableSignatureException {
+        App app = new App();
+        System.out.println("bye");
+    }
 
-    DoStuff() throws NoSuchAlgorithmException, InvalidKeyException, IOException, RedactableSignatureException {
+
+    private App() throws NoSuchAlgorithmException, InvalidKeyException, IOException, RedactableSignatureException {
         java.security.Security.addProvider(new WPProvider());
         KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
 
 
         KeyPair glRssKeyPair = glRssGenerator.generateKeyPair();
+        this.glRssKeyPair = glRssKeyPair;
         System.out.println("finished generating keypair");
         publicKey = glRssKeyPair.getPublic();
 
-        rss = RedactableSignature.getInstance("GLRSSwithRSAandBPA");
-
-        rss.initSign(glRssKeyPair);
-        signDocByLine();
+        RedactableSignature rss1 = initializeRss();
+        //RedactableSignature rss2 = initializeRss();
+        SignatureOutput signFull = signDocByLine("test1.xml",  rss1);
+        //SignatureOutput signRss  = signDocByLine("test1.xsd", rss2);
+/*        if (rss1.verify(signRss)) {
+            System.out.println("old signature still valid");
+        } else {
+            System.out.println("old signature not valid");
+        }*/
     }
 
+    public RedactableSignature initializeRss() throws NoSuchAlgorithmException, InvalidKeyException {
+        RedactableSignature rss = RedactableSignature.getInstance("GLRSSwithRSAandBPA");
+        rss.initSign(glRssKeyPair);
+        return rss;
+    }
 
-    public void signDocByLine() throws IOException, RedactableSignatureException, InvalidKeyException {
-        List<String> linesList = Files.readAllLines(Paths.get("app/testdata/test1.xml"));
+    public SignatureOutput signDocByLine(String file, RedactableSignature rss) throws IOException, RedactableSignatureException, InvalidKeyException, NoSuchAlgorithmException {
+        List<String> linesList = Files.readAllLines(Paths.get("app/testdata/" + file));
         String[] linesArray = linesList.toArray(new String[0]);
         byte[] bArray;
         int max = linesArray.length - 1;
@@ -98,7 +92,8 @@ class DoStuff {
         }*/
         rss.initRedact(publicKey);
         SignatureOutput newSign = rss.redact(signatureOutput);
+        //rss.initVerify(publicKey);
+
+        return signatureOutput;
     }
 }
-
-

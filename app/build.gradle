@@ -25,3 +25,16 @@ jar {
         attributes 'Main-Class': 'rss.app.MainClass'
     }
 }
+
+task app(type: CreateStartScripts) {
+    mainClass = 'rss.app'
+    applicationName = 'app'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+
+applicationDistribution.into('bin') {
+    from(app)
+    fileMode = 0755
+}
