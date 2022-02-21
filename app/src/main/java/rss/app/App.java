@@ -32,7 +32,9 @@ public class App {
     private KeyPair   glRssKeyPair;
 
     public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException, RedactableSignatureException {
-        App app = new App();
+        //App app = new App();
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        FileByBlocks blocks = new FileByBlocks("app/name.pdf");
         System.out.println("bye");
     }
 

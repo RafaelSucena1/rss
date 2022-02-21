@@ -8,6 +8,6 @@
  */
 
 rootProject.name = 'rss'
-include('app', 'xmlrss')
+include('app', 'xmlrss', 'com.google.code.gson', 'org.apache.pdfbox')
 
 
