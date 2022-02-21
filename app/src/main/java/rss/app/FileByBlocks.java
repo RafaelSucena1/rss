@@ -12,6 +12,9 @@ public class FileByBlocks {
 
     FileByBlocks(String fileName) {
         this.file = new File(fileName);
+    }
+
+    public String getFullText() {
         try (PDDocument doc = PDDocument.load(file)) {
 
             PDFTextStripper stripper = new PDFTextStripper();
@@ -19,10 +22,10 @@ public class FileByBlocks {
 
             System.out.println("Text size: " + text.length() + " characters:");
             System.out.println(text);
+            return text;
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 }

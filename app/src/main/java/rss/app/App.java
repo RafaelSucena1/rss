@@ -5,19 +5,9 @@ package rss.app;
 
 
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.*;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignature;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignatureException;
-import org.w3c.dom.Document;
 
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -34,12 +24,24 @@ public class App {
     public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException, RedactableSignatureException {
         //App app = new App();
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        FileByBlocks blocks = new FileByBlocks("app/name.pdf");
+        App app = new App();
+        app.redact2("name.pdf");
+
         System.out.println("bye");
     }
 
 
-    private App() throws NoSuchAlgorithmException, InvalidKeyException, IOException, RedactableSignatureException {
+    private App(){
+
+    }
+
+    public void redact2(String fileName) {
+        FileByBlocks blocks = new FileByBlocks("app/" + fileName);
+
+    }
+
+
+    public void redact() throws NoSuchAlgorithmException, InvalidKeyException, IOException, RedactableSignatureException {
         java.security.Security.addProvider(new WPProvider());
         KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
 
