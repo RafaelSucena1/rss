@@ -15,17 +15,18 @@ public class FileByBlocks {
     }
 
     public String getFullText() {
+        String text = "";
         try (PDDocument doc = PDDocument.load(file)) {
 
             PDFTextStripper stripper = new PDFTextStripper();
-            String text = stripper.getText(doc);
+            text = stripper.getText(doc);
 
             System.out.println("Text size: " + text.length() + " characters:");
             System.out.println(text);
-            return text;
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return text;
     }
 }

@@ -1,8 +1,10 @@
 package rss.app;
 
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSPublicKey;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
 
 import java.security.PublicKey;
+import java.security.SignatureException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -19,18 +21,23 @@ class GLRSSSignatureExtractor {
     private ArrayList<byte[]> randomValues;
     private ArrayList<byte[]> accumulatorValues;
     private ArrayList<ArrayList<byte[]>> listWitnesses;
-    private PublicKey publicKey;
-    private byte[] dSignature;
+    private GLRSSPublicKey publicKey;
+    private byte[] setSignature;
+    private byte[] setAcc;
+    private int numberOfParts = 0;
 
-    GLRSSSignatureExtractor (GLRSSSignatureOutput signatureOutput, PublicKey publicKey) {
+    GLRSSSignatureExtractor (GLRSSSignatureOutput signatureOutput) throws SignatureException {
         randomValues   = getRandomValues(signatureOutput);
         accumulatorValues = getAccumulatorValues(signatureOutput);
         listWitnesses  = getListWitnesses(signatureOutput);
 
-        this.publicKey = publicKey;
+        publicKey = signatureOutput.;
 
-        byte[] dSignatureLocal     = signatureOutput.getGsDsigValue();
-        dSignature = Arrays.copyOf(dSignatureLocal, dSignatureLocal.length);
+        setSignature = signatureOutput.getGsDsigValue();
+        setSignature = Arrays.copyOf(setSignature, setSignature.length);
+
+        setAcc       = signatureOutput.getGsAccumulator();
+        setAcc       = Arrays.copyOf(setAcc, setAcc.length);
     }
 
     /**
@@ -43,6 +50,7 @@ class GLRSSSignatureExtractor {
         for (GLRSSSignatureOutput.GLRSSSignedPart part : signatureOutput.getParts()){
             byte[] randomLocal = part.getRandomValue();
             randomValues.add(Arrays.copyOf(randomLocal, randomLocal.length));
+            numberOfParts++;
         }
         return randomValues;
     }
@@ -51,12 +59,16 @@ class GLRSSSignatureExtractor {
      * returns the accumulator values in THE ORDER THEY WHERE ADDED
      * @return
      */
-    public ArrayList<byte[]> getAccumulatorValues(GLRSSSignatureOutput signatureOutput){
+    public ArrayList<byte[]> getAccumulatorValues(GLRSSSignatureOutput signatureOutput) throws SignatureException {
         ArrayList<byte[]> accumulatorValues = new ArrayList<>();
-
+        int numberOfAccumulators = 0;
         for (GLRSSSignatureOutput.GLRSSSignedPart part : signatureOutput.getParts()){
             byte[] accLocal = part.getAccumulatorValue();
             accumulatorValues.add(Arrays.copyOf(accLocal, accLocal.length));
+            numberOfAccumulators++;
+        }
+        if(numberOfAccumulators != numberOfParts){
+            throw new SignatureException("Parsed the wrong number of parts");
         }
         return accumulatorValues;
     }

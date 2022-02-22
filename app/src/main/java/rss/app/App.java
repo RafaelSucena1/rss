@@ -5,6 +5,7 @@ package rss.app;
 
 
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.*;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignatureException;
 
 import javax.xml.transform.TransformerException;
@@ -35,9 +36,43 @@ public class App {
 
     }
 
-    public void redact2(String fileName) {
+    public void redact2(String fileName) throws NoSuchAlgorithmException, InvalidKeyException, RedactableSignatureException {
         FileByBlocks blocks = new FileByBlocks("app/" + fileName);
 
+        java.security.Security.addProvider(new WPProvider());
+        KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
+
+        KeyPair glRssKeyPair = glRssGenerator.generateKeyPair();
+        this.glRssKeyPair = glRssKeyPair;
+        System.out.println("finished generating keypair");
+        publicKey = glRssKeyPair.getPublic();
+
+        String[] linesArray = blocks.getFullText().split(System.lineSeparator());
+        byte[] bArray;
+        int max = linesArray.length - 1;
+        byte[][] linesAsBytes = new byte[max][];
+
+        List<Identifier> rssIdentifiers = new ArrayList<Identifier>();
+        RedactableSignature rss = initializeRss();
+        byte[] chunk;
+        for (String line : linesArray) {
+            chunk = line.getBytes(StandardCharsets.UTF_8);
+            rssIdentifiers.add(rss.addPart(chunk));
+        }
+
+        SignatureOutput signatureOutput = rss.sign();
+        try {
+            GLRSSSignatureExtractor extractor = new GLRSSSignatureExtractor((GLRSSSignatureOutput) signatureOutput, publicKey);
+        } catch (SignatureException e) {
+            e.printStackTrace();
+            return;
+        }
+        /*for (Identifier identifier : rssIdentifiers){
+
+            rss.addIdentifier(identifier);
+        }*/
+        rss.initRedact(publicKey);
+        SignatureOutput newSign = rss.redact(signatureOutput);
     }
 
 
