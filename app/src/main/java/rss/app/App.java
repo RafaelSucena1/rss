@@ -36,8 +36,8 @@ public class App {
 
     }
 
-    public void redact2(String fileName) throws NoSuchAlgorithmException, InvalidKeyException, RedactableSignatureException {
-        FileByBlocks blocks = new FileByBlocks("app/" + fileName);
+    public void redact2(String fileName) throws NoSuchAlgorithmException, InvalidKeyException, RedactableSignatureException, IOException {
+        FileByBlocks blocks = new FileByBlocks("app/testdata/" + fileName);
 
         java.security.Security.addProvider(new WPProvider());
         KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
@@ -57,10 +57,13 @@ public class App {
         byte[] chunk;
         for (String line : linesArray) {
             chunk = line.getBytes(StandardCharsets.UTF_8);
-            rssIdentifiers.add(rss.addPart(chunk));
+            rssIdentifiers.add(rss.addPart(chunk, false));
         }
 
         SignatureOutput signatureOutput = rss.sign();
+        LinearSignatureExtractor linearSignatureExtractor = new LinearSignatureExtractor(signatureOutput, publicKey,"app/testdata/" + fileName);
+        linearSignatureExtractor.writeBytes();
+
         try {
             GLRSSSignatureExtractor extractor = new GLRSSSignatureExtractor((GLRSSSignatureOutput) signatureOutput, publicKey);
         } catch (SignatureException e) {

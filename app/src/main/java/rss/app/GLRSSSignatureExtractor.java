@@ -26,12 +26,12 @@ class GLRSSSignatureExtractor {
     private byte[] setAcc;
     private int numberOfParts = 0;
 
-    GLRSSSignatureExtractor (GLRSSSignatureOutput signatureOutput) throws SignatureException {
+    GLRSSSignatureExtractor (GLRSSSignatureOutput signatureOutput, PublicKey publicKey) throws SignatureException {
         randomValues   = getRandomValues(signatureOutput);
         accumulatorValues = getAccumulatorValues(signatureOutput);
         listWitnesses  = getListWitnesses(signatureOutput);
 
-        publicKey = signatureOutput.;
+        this.publicKey = (GLRSSPublicKey) publicKey;
 
         setSignature = signatureOutput.getGsDsigValue();
         setSignature = Arrays.copyOf(setSignature, setSignature.length);
