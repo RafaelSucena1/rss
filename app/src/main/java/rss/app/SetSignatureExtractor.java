@@ -27,19 +27,27 @@ public class SetSignatureExtractor {
         accumulatorValue = gsRssSignatureOutput.getAccumulatorValue();
     }
 
-    public void writeBytes(int bufferSize, FileChannel channel) throws IOException {
-        ByteBuffer buffer;
-        buffer = ByteBuffer.allocate(bufferSize).putInt(dSigValue.length);
+    public void writeByteSizeOfVariables(ByteBuffer buffer, FileChannel channel) throws IOException {
+
+        buffer.putInt(dSigValue.length);
         channel.write(buffer);
-        buffer  = ByteBuffer.allocate(bufferSize).putInt(accumulatorValue.length);
+        buffer.rewind();
+
+        buffer.putInt(accumulatorValue.length);
         channel.write(buffer);
+        buffer.rewind();
+
     }
 
-    public void writeAll(FileChannel channel) throws IOException {
-        ByteBuffer buffer;
+    public void writeAll(FileChannel channel, ByteBuffer buffer) throws IOException {
+
         buffer = ByteBuffer.allocate(dSigValue.length).put(dSigValue);
         channel.write(buffer);
+        buffer.rewind();
+
         buffer  = ByteBuffer.allocate(accumulatorValue.length).put(accumulatorValue);
         channel.write(buffer);
+        buffer.rewind();
+
     }
 }

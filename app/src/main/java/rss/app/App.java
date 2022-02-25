@@ -23,6 +23,16 @@ public class App {
     private KeyPair   glRssKeyPair;
 
     public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException, RedactableSignatureException {
+        boolean testingRSA = true;
+        if(testingRSA) {
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+            System.out.println(Arrays.toString(keyPairGenerator.generateKeyPair().getPublic().getEncoded()));
+
+            return;
+        }
+
+
+
         //App app = new App();
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
         App app = new App();
@@ -43,6 +53,8 @@ public class App {
         KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
 
         KeyPair glRssKeyPair = glRssGenerator.generateKeyPair();
+        Base64.Encoder encoder = Base64.getEncoder();
+        System.out.println("public key: "+encoder.encodeToString(glRssKeyPair.getPublic().getEncoded()));
         this.glRssKeyPair = glRssKeyPair;
         System.out.println("finished generating keypair");
         publicKey = glRssKeyPair.getPublic();
@@ -62,7 +74,7 @@ public class App {
 
         SignatureOutput signatureOutput = rss.sign();
         LinearSignatureExtractor linearSignatureExtractor = new LinearSignatureExtractor(signatureOutput, publicKey,"app/testdata/" + fileName);
-        linearSignatureExtractor.writeBytes();
+        linearSignatureExtractor.writeByteSizeOfVariables();
 
         try {
             GLRSSSignatureExtractor extractor = new GLRSSSignatureExtractor((GLRSSSignatureOutput) signatureOutput, publicKey);
