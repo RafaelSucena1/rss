@@ -48,14 +48,15 @@ public class App {
         publicKey = glRssKeyPair.getPublic();
 
         RedactableSignature rss1 = initializeRss();
-        //RedactableSignature rss2 = initializeRss();
+        RedactableSignature rss2 = initializeRss();
         SignatureOutput signFull = signDocByLine("test1.xml",  rss1);
-        //SignatureOutput signRss  = signDocByLine("test1.xsd", rss2);
-/*        if (rss1.verify(signRss)) {
+        SignatureOutput signRss  = signDocByLine("test1.xsd", rss2);
+        rss1.initVerify(publicKey);
+        if (rss1.verify(signFull)) {
             System.out.println("old signature still valid");
         } else {
             System.out.println("old signature not valid");
-        }*/
+        }
     }
 
     public RedactableSignature initializeRss() throws NoSuchAlgorithmException, InvalidKeyException {
@@ -78,7 +79,7 @@ public class App {
         for (String line : linesArray) {
             chunk = line.getBytes(StandardCharsets.UTF_8);
             if(line.startsWith("  ~")){
-                rssIdentifiers.add(rss.addPart(chunk));
+                rssIdentifiers.add(rss.addPart(chunk, false));
             } else {
                 notRssIdentifiers.add(rss.addPart(chunk, false));
             }
