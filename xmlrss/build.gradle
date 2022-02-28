@@ -21,6 +21,8 @@
 
 plugins {
     id 'rss.java-library-conventions'
+    id 'idea'
+    id 'com.adarshr.test-logger' version '3.2.0'
 }
 sourceCompatibility = 1.8
 
@@ -29,6 +31,28 @@ repositories {
 }
 
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.11'
     implementation group: 'org.apache.santuario', name: 'xmlsec', version: '2.0.8'
+    testImplementation 'junit:junit:4.11'
+    implementation 'junit:junit:4.11'
+}
+
+repositories {
+    gradlePluginPortal() // so that external plugins can be resolved in dependencies section
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+            srcDir 'test'
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
 }

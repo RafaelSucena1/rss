@@ -4,14 +4,23 @@
 
 plugins {
     id 'rss.java-application-conventions'
+    id 'idea'
+    id 'com.adarshr.test-logger' version '3.2.0'
 }
 
 sourceCompatibility = 1.8
 
 dependencies {
-    implementation 'org.apache.commons:commons-text'
     implementation project(':xmlrss')
+    implementation 'org.apache.commons:commons-text'
+    testImplementation 'junit:junit:4.11'
+    implementation 'junit:junit:4.11'
+    testImplementation project(path: ":xmlrss")
+}
 
+repositories {
+    gradlePluginPortal() // so that external plugins can be resolved in dependencies section
+    mavenCentral()
 }
 
 version = '0.1.0'
@@ -23,5 +32,25 @@ application {
 jar {
     manifest {
         attributes 'Main-Class': 'rss.app.MainClass'
+    }
+}
+
+
+test {
+    dependsOn(':xmlrss:test')
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "short"
+
+        // set options for log level DEBUG
+        debug {
+            events "started", "skipped", "failed"
+            exceptionFormat "full"
+        }
+
+        // remove standard output/error logging from --info builds
+        // by assigning only 'failed' and 'skipped' events
+        info.events = ["failed", "skipped"]
     }
 }
