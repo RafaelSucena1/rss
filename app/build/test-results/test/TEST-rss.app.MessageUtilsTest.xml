@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="rss.app.MessageUtilsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-21T16:41:23" hostname="sentinel" time="0.015">
+<testsuite name="rss.app.MessageUtilsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-28T16:57:05" hostname="sentinel" time="0.012">
   <properties/>
-  <testcase name="testGetMessage()" classname="rss.app.MessageUtilsTest" time="0.015"/>
+  <testcase name="testGetMessage()" classname="rss.app.MessageUtilsTest" time="0.012"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
