@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.xml.GSRedactableXMLSignatureTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.xml.GSRedactableXMLSignatureTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.xml.html">de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.xml</a> &gt; GSRedactableXMLSignatureTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">13</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.083s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testAddNonRedactable</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testAddPartSelectorDuplicate</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetInstance</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetInstanceFromSpecificProviderObject</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetInstanceFromSpecificProviderString</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testRedactNonRedactable</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testRedactOverlapDTD</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testRedactOverlapSchema</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSign</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSignAndThenVerify</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSignThenRedactAndThenVerify</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testVerifyFalseModfiedSig</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testVerifyFalseModifiedDoc</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;Vehicle&gt;&lt;Aircraft id=&quot;a1&quot;&gt;&lt;Glider id=&quot;g1&quot;&gt;DG-800&lt;/Glider&gt;&lt;Jet id=&quot;j1&quot;&gt;Airbus A380&lt;/Jet&gt;&lt;/Aircraft&gt;&lt;Watercraft id=&quot;a2&quot;&gt;&lt;Sailboat&gt;Bavaria 36&lt;/Sailboat&gt;&lt;Motorboat&gt;Bavaria Sport 29&lt;/Motorboat&gt;&lt;/Watercraft&gt;&lt;MotorVehicles id=&quot;a3&quot;&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A3&quot;/&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A4&quot;/&gt;&lt;Car Brand=&quot;BMW&quot; Model=&quot;i7&quot;/&gt;&lt;Motorcycle Brand=&quot;Honda&quot; Model=&quot;RC212V&quot;/&gt;&lt;/MotorVehicles&gt;&lt;Signature xmlns=&quot;https://sec.uni-passau.de/2017/03/xmlrss&quot;&gt;&lt;SignatureInfo&gt;&lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2006/12/xml-c14n11#WithComments&quot;/&gt;&lt;RedactableSignatureAlgorithm Algorithm=&quot;http://sec.uni-passau.de/2017/xmlrss/gsrss&quot;/&gt;&lt;/SignatureInfo&gt;&lt;References&gt;&lt;Reference&gt;&lt;Pointer URI=&quot;SignatureInfo&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;AKUdPi80uFIeBYL+k6+ODvLG7w69dtpGK7N5b/ZWI8kw4dsbX/jj3FkiC0VzN2RKdaXN0B20xVbEHb3y415eoZ8=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;TlwdVRxq4IXgPRAoWOumP/5v5IKS8iXkDv9tykG466ta8yxW0QdkjJx2E8i0/oPiCj8YPjWPPF11k7bOnoT6RQ==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;false&quot; URI=&quot;#xpointer(id('a2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;JSeqFEMO2e6evzPKVXvCf3aA/4Dy6IgL1gJ/SmpsolzhO8e75VQ3lhT/o1/MQJ93BqlpFy12032Tzxt3qnOkow==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;/References&gt;&lt;SignatureValue&gt;&lt;DSigValue&gt;NxFXoupD4Fu7eAdXQ42/YOS3cDAu3py/+a38mr0mVMH0CbHhTnSbqQyT9WISQAslm0bTPg54SVPPLFIhxOvKJA==&lt;/DSigValue&gt;&lt;AccumulatorValue&gt;Ac+xorob/kj7MBXlp9k2BhWGIjsEKNsmKkJpCBM8L4jx03a7dDDscmksYmjlG+Tj7Zs5lS33YbTInDsHu71wjQ==&lt;/AccumulatorValue&gt;&lt;/SignatureValue&gt;&lt;/Signature&gt;&lt;/Vehicle&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;Vehicle&gt;&lt;Aircraft id=&quot;a1&quot;&gt;&lt;Glider id=&quot;g1&quot;&gt;DG-800&lt;/Glider&gt;&lt;Jet id=&quot;j1&quot;&gt;Airbus A380&lt;/Jet&gt;&lt;/Aircraft&gt;&lt;Watercraft id=&quot;a2&quot;&gt;&lt;Sailboat&gt;Bavaria 36&lt;/Sailboat&gt;&lt;Motorboat&gt;Bavaria Sport 29&lt;/Motorboat&gt;&lt;/Watercraft&gt;&lt;MotorVehicles id=&quot;a3&quot;&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A3&quot;/&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A4&quot;/&gt;&lt;Car Brand=&quot;BMW&quot; Model=&quot;i7&quot;/&gt;&lt;Motorcycle Brand=&quot;Honda&quot; Model=&quot;RC212V&quot;/&gt;&lt;/MotorVehicles&gt;&lt;Signature xmlns=&quot;https://sec.uni-passau.de/2017/03/xmlrss&quot;&gt;&lt;SignatureInfo&gt;&lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2006/12/xml-c14n11#WithComments&quot;/&gt;&lt;RedactableSignatureAlgorithm Algorithm=&quot;http://sec.uni-passau.de/2017/xmlrss/gsrss&quot;/&gt;&lt;/SignatureInfo&gt;&lt;References&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;cCclpW8N77xNA6lgoHjXhBieSNDu2uYpvOrOa1zM3elZs5spNKn6rzKUco3wMn2hz+NiAw1slmogBXGaOCSpDw==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer URI=&quot;SignatureInfo&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;fEI8+E48h26uvFEhTccWmhL8hjwbOSZTM89Hs4hncC0Gh6X3GTOuyExp1Ahdmdp0toFdtO0BTKlLkAT5amSgHg==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;false&quot; URI=&quot;#xpointer(id('a2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;AJ0gyHSNbUHZ6vac/I2Ta0u2u8UUAXwW8lB8UCuXfUy1UW5Pmj9fUzm/3XUMC4ArQcW9zJmmO+azzxnbxQRXZ7M=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;/References&gt;&lt;SignatureValue&gt;&lt;DSigValue&gt;NxFXoupD4Fu7eAdXQ42/YOS3cDAu3py/+a38mr0mVMH0CbHhTnSbqQyT9WISQAslm0bTPg54SVPPLFIhxOvKJA==&lt;/DSigValue&gt;&lt;AccumulatorValue&gt;Vtv1bL461OIUT3kT63O7uZcq0r763DPR0Xb24Pki3wah8x9HxEsIW2CqCPoX4XNndh1F0YBUFMEQqRxcjX4hnA==&lt;/AccumulatorValue&gt;&lt;/SignatureValue&gt;&lt;/Signature&gt;&lt;/Vehicle&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;Vehicle&gt;&lt;Aircraft id=&quot;a1&quot;&gt;&lt;Glider id=&quot;g1&quot;&gt;DG-800&lt;/Glider&gt;&lt;Jet id=&quot;j1&quot;&gt;Airbus A380&lt;/Jet&gt;&lt;/Aircraft&gt;&lt;Watercraft id=&quot;a2&quot;&gt;&lt;Sailboat&gt;Bavaria 36&lt;/Sailboat&gt;&lt;Motorboat&gt;Bavaria Sport 29&lt;/Motorboat&gt;&lt;/Watercraft&gt;&lt;MotorVehicles id=&quot;a3&quot;&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A3&quot;/&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A4&quot;/&gt;&lt;Car Brand=&quot;BMW&quot; Model=&quot;i7&quot;/&gt;&lt;Motorcycle Brand=&quot;Honda&quot; Model=&quot;RC212V&quot;/&gt;&lt;/MotorVehicles&gt;&lt;Signature xmlns=&quot;https://sec.uni-passau.de/2017/03/xmlrss&quot;&gt;&lt;SignatureInfo&gt;&lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2006/12/xml-c14n11#WithComments&quot;/&gt;&lt;RedactableSignatureAlgorithm Algorithm=&quot;http://sec.uni-passau.de/2017/xmlrss/gsrss&quot;/&gt;&lt;/SignatureInfo&gt;&lt;References&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;QTTD9L6F1riaUzrADr7Ospba/eUGQNVy5kQy1XBwK5/cEt9O1yqg1slEfc3nTEz8KMu7i3jwqIzGGSYXrRvT4A==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;YnQtYd0ummuqf9A+xHJQzbUIYz/UHhswP8Xuzv5bkcZ54EfJwWU4cjYpfCkMdnsW+8AzQPc9N52O4RRNe6diEw==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a3'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;WJg5CTYhB/QwHBItBawULCgmTQ7pnZZcOminR0+07KVytko94m2QbCxftnTGHIQ+1mk4GmxpHL1HQDGIQNsiJA==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer URI=&quot;SignatureInfo&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;TBHoUNXAe6vwmaLRHVIob49EEdhtosPNLjvyo9+THuSs1UAuTj8CJix5hrfdqUS8mToxdOHbvYJeB8sj41KuFw==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;/References&gt;&lt;SignatureValue&gt;&lt;DSigValue&gt;GrvoCBAc93qZodUuJR7Bv5HowUPDfbOISBwm0w+E5EJioBPUOv04DcZQVwSja+SlV5azi9udwh+t1R3CRK47Sw==&lt;/DSigValue&gt;&lt;AccumulatorValue&gt;AK9Tz14mlzmPsNBVHHJdC2BTXDkxBxGzk8cVNMVJ90/qdukMvWqIap4VQJnvTHMcogQ/fV2Httik3k2bDr5lPqc=&lt;/AccumulatorValue&gt;&lt;/SignatureValue&gt;&lt;/Signature&gt;&lt;/Vehicle&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot;?&gt;&lt;!--
+  ~ XMLRSS - A Java Crypto Provider for Redactable Signatures and their
+  ~ XML Signature encoding.
+  ~
+  ~ Copyright (c) 2017 Wolfgang Popp
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+  --&gt;&lt;container xmlns=&quot;https://sec.fim.uni-passau.de/psrss&quot;&gt;&lt;item id=&quot;i1&quot;&gt;&lt;list id=&quot;l1&quot;&gt;&lt;entry id=&quot;e1&quot;&gt;entry1&lt;/entry&gt;&lt;entry id=&quot;e2&quot;&gt;entry2&lt;/entry&gt;&lt;entry id=&quot;e3&quot;&gt;entry3&lt;/entry&gt;&lt;/list&gt;&lt;/item&gt;&lt;item id=&quot;i2&quot;&gt;&lt;struct id=&quot;s1&quot;&gt;&lt;header&gt;head&lt;/header&gt;&lt;body&gt;
+                &lt;data&gt;data&lt;/data&gt;
+            &lt;/body&gt;&lt;footer&gt;foot&lt;/footer&gt;&lt;/struct&gt;&lt;/item&gt;&lt;item id=&quot;i3&quot;&gt;&lt;data id=&quot;d1&quot;&gt;data&lt;/data&gt;&lt;/item&gt;&lt;Signature xmlns=&quot;https://sec.uni-passau.de/2017/03/xmlrss&quot;&gt;&lt;SignatureInfo&gt;&lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2006/12/xml-c14n11#WithComments&quot;/&gt;&lt;RedactableSignatureAlgorithm Algorithm=&quot;http://sec.uni-passau.de/2017/xmlrss/gsrss&quot;/&gt;&lt;/SignatureInfo&gt;&lt;References&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('l1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;AJ84riGhvMBgyz2wADYtv4PB3NiBCEP+2m12mMsQt3tdmWYmovh4XSfUWT1nE9ARcS9Byro37cjzgPvyAOnHVrk=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('i2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;Lb3jaYbLw+9r9rO0XqEUNb+Qq//FpWAvE1oc4bBB8up3pWp4mPOEdDMhpX9HhWh0SRtJgdgLetj11Nw/2dQQdA==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer URI=&quot;SignatureInfo&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;ALVuIRjsGwYU8HKOK5VDS+uPaznJYmeWNGnL9UsiL5hsBzMvu3DUHXgUZLGVVAlj5aI2qTW0zGmyfGoNE6fASbw=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('e3'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;AIu3/3xYjNdvsEbN0jprqKdCJqXt6wX4y08yIMeNuwhPFvrkW1/IRKF+U1G1rfCmHtjp6LchQP/fP0nBdBC599A=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('s1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;TDPfZ4j2a2VbR2nph5hH7ZwzkJkT3HixDM4Wou5ZeX4o23OG5IeLQS9doBIFgbglP9RkMxm4MuxLa1u78IwkQQ==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('e1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;AJ8u/0s4Dd6V5YmeQNYOx2mQqAQqvlFkG9wzFIeB5vlTrnq9HB36jal7YtN6dc1xH6cVOCUGqKnoWTh5ovHDuok=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('e2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;CbYmGCht8UQLNfDuzpBSW2sTj0f1jo8RurBcGQSmzVDMsilHuhkG/G+CRcH5PSXr2rlh/SuNl8TufEnzWtPL9Q==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('i3'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;D7tRrMVkJjM9gnAaECrTqnmo0ZEhsWFscxy1rOz6LBTCl7C1KhKn+kW2VAd9xXI3U7KRW1TZOA6skRwwTN54Fg==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('i1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;OT9tM03J4tjKHJFR4NZTWgGQJHhucLAOe+RqoIWMjBhI/LxBnZgy4hNWrtdDNtihp4RNAQKuY96gKEmUQp0ssQ==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;/References&gt;&lt;SignatureValue&gt;&lt;DSigValue&gt;GrvoCBAc93qZodUuJR7Bv5HowUPDfbOISBwm0w+E5EJioBPUOv04DcZQVwSja+SlV5azi9udwh+t1R3CRK47Sw==&lt;/DSigValue&gt;&lt;AccumulatorValue&gt;TLLXjbsjfMQoMmKN8GH8ghb0WfTwcxWPw+azi66IjAu8nyUA7SKnnvz/miXprQSMoz5Kx5eStsc/N98aEdFw0w==&lt;/AccumulatorValue&gt;&lt;/SignatureValue&gt;&lt;/Signature&gt;&lt;/container&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot;?&gt;&lt;!--
+  ~ XMLRSS - A Java Crypto Provider for Redactable Signatures and their
+  ~ XML Signature encoding.
+  ~
+  ~ Copyright (c) 2017 Wolfgang Popp
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+  --&gt;&lt;container xmlns=&quot;https://sec.fim.uni-passau.de/psrss&quot;&gt;&lt;item id=&quot;i2&quot;&gt;&lt;struct id=&quot;s1&quot;&gt;&lt;header&gt;head&lt;/header&gt;&lt;body&gt;
+                &lt;data&gt;data&lt;/data&gt;
+            &lt;/body&gt;&lt;footer&gt;foot&lt;/footer&gt;&lt;/struct&gt;&lt;/item&gt;&lt;Signature xmlns=&quot;https://sec.uni-passau.de/2017/03/xmlrss&quot;&gt;&lt;SignatureInfo&gt;&lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2006/12/xml-c14n11#WithComments&quot;/&gt;&lt;RedactableSignatureAlgorithm Algorithm=&quot;http://sec.uni-passau.de/2017/xmlrss/gsrss&quot;/&gt;&lt;/SignatureInfo&gt;&lt;References&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('i2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;Lb3jaYbLw+9r9rO0XqEUNb+Qq//FpWAvE1oc4bBB8up3pWp4mPOEdDMhpX9HhWh0SRtJgdgLetj11Nw/2dQQdA==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer URI=&quot;SignatureInfo&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;ALVuIRjsGwYU8HKOK5VDS+uPaznJYmeWNGnL9UsiL5hsBzMvu3DUHXgUZLGVVAlj5aI2qTW0zGmyfGoNE6fASbw=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('s1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;TDPfZ4j2a2VbR2nph5hH7ZwzkJkT3HixDM4Wou5ZeX4o23OG5IeLQS9doBIFgbglP9RkMxm4MuxLa1u78IwkQQ==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;/References&gt;&lt;SignatureValue&gt;&lt;DSigValue&gt;GrvoCBAc93qZodUuJR7Bv5HowUPDfbOISBwm0w+E5EJioBPUOv04DcZQVwSja+SlV5azi9udwh+t1R3CRK47Sw==&lt;/DSigValue&gt;&lt;AccumulatorValue&gt;TLLXjbsjfMQoMmKN8GH8ghb0WfTwcxWPw+azi66IjAu8nyUA7SKnnvz/miXprQSMoz5Kx5eStsc/N98aEdFw0w==&lt;/AccumulatorValue&gt;&lt;/SignatureValue&gt;&lt;/Signature&gt;&lt;/container&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;Vehicle&gt;&lt;Aircraft id=&quot;a1&quot;&gt;&lt;Glider id=&quot;g1&quot;&gt;DG-800&lt;/Glider&gt;&lt;Jet id=&quot;j1&quot;&gt;Airbus A380&lt;/Jet&gt;&lt;/Aircraft&gt;&lt;Watercraft id=&quot;a2&quot;&gt;&lt;Sailboat&gt;Bavaria 36&lt;/Sailboat&gt;&lt;Motorboat&gt;Bavaria Sport 29&lt;/Motorboat&gt;&lt;/Watercraft&gt;&lt;MotorVehicles id=&quot;a3&quot;&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A3&quot;/&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A4&quot;/&gt;&lt;Car Brand=&quot;BMW&quot; Model=&quot;i7&quot;/&gt;&lt;Motorcycle Brand=&quot;Honda&quot; Model=&quot;RC212V&quot;/&gt;&lt;/MotorVehicles&gt;&lt;Signature xmlns=&quot;https://sec.uni-passau.de/2017/03/xmlrss&quot;&gt;&lt;SignatureInfo&gt;&lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2006/12/xml-c14n11#WithComments&quot;/&gt;&lt;RedactableSignatureAlgorithm Algorithm=&quot;http://sec.uni-passau.de/2017/xmlrss/gsrss&quot;/&gt;&lt;/SignatureInfo&gt;&lt;References&gt;&lt;Reference&gt;&lt;Pointer URI=&quot;SignatureInfo&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;EuxuYdUBPPmoSVkQ7t6637rorOJyS+Ng2Bv85S7Sf6HyhDyHax/lY/+GY/oLiAnKtlEEaJZ7ILh8nhulZKdbpw==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a3'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;Fsg8cnVQzhaUQpsm8E7bmP3fHaoaFDXYckMOwOP8eUottv8Dio5hL/mO5KdPu2/5SG7PDvqCG0mCEAEOvQi/Nw==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;AIP9DZEOzUHFDpuqfLCqlSgzw3i/vzOawQ4pZZgD3QHjtJB3Qx5bVvprWoXOHWyumHYbQvVg3+wrlEuDYe6CU3E=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;dFB+uY+XFPsBtIj8HacHwT/PvtXDJAoGxyufLLudrpKa/eGQLHsKvRu8c55SuDogjX/Hub4FSGWbGG+UhwyRGw==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;/References&gt;&lt;SignatureValue&gt;&lt;DSigValue&gt;GrvoCBAc93qZodUuJR7Bv5HowUPDfbOISBwm0w+E5EJioBPUOv04DcZQVwSja+SlV5azi9udwh+t1R3CRK47Sw==&lt;/DSigValue&gt;&lt;AccumulatorValue&gt;LEF3K5yy9GfYhWsWRSbNON9aOlypDcp4Jhlz+gg3ixATQGheyxRD/XLUZ2pvwF6XmMCERzJ4czsSG6gmvsl+Yw==&lt;/AccumulatorValue&gt;&lt;/SignatureValue&gt;&lt;/Signature&gt;&lt;/Vehicle&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;Vehicle&gt;&lt;Aircraft id=&quot;a1&quot;&gt;&lt;Glider id=&quot;g1&quot;&gt;DG-800&lt;/Glider&gt;&lt;Jet id=&quot;j1&quot;&gt;Airbus A380&lt;/Jet&gt;&lt;/Aircraft&gt;&lt;Watercraft id=&quot;a2&quot;&gt;&lt;Sailboat&gt;Bavaria 36&lt;/Sailboat&gt;&lt;Motorboat&gt;Bavaria Sport 29&lt;/Motorboat&gt;&lt;/Watercraft&gt;&lt;MotorVehicles id=&quot;a3&quot;&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A3&quot;/&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A4&quot;/&gt;&lt;Car Brand=&quot;BMW&quot; Model=&quot;i7&quot;/&gt;&lt;Motorcycle Brand=&quot;Honda&quot; Model=&quot;RC212V&quot;/&gt;&lt;/MotorVehicles&gt;&lt;Signature xmlns=&quot;https://sec.uni-passau.de/2017/03/xmlrss&quot;&gt;&lt;SignatureInfo&gt;&lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2006/12/xml-c14n11#WithComments&quot;/&gt;&lt;RedactableSignatureAlgorithm Algorithm=&quot;http://sec.uni-passau.de/2017/xmlrss/gsrss&quot;/&gt;&lt;/SignatureInfo&gt;&lt;References&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a3'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;Vw7TX/pKxJiajCeOsj4TP+y2okMnsKI4BO+dk6/ug+PImYAQswMt3uodLQDk9MWJdBnhz79Syn6v3I0vchT/lg==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer URI=&quot;SignatureInfo&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;RV/EKvyKGewSAhQEVt6SvXvQkp8CMhwv7RsNN3uoA5uIZH03n12LhpsGkmXMYkucATZgpD5KJ5Fn6bVLrLQJrA==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;OuOh73FYNL9dT/r0f9uwLmF4zt8UNvYg9UXbiqeJJ7o8qR6wg4svpD1w8kiTs9RpI4lstn+v4VcZsdasrnfsng==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;ebpfKQIj2ph2fVEobQIMMACHCrI/5ktScGYRiCpKNgHIaPYbYi5t49CVBzEC84ooyS2kh5YiWomrL3/AN6D6wQ==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;/References&gt;&lt;SignatureValue&gt;&lt;DSigValue&gt;GrvoCBAc93qZodUuJR7Bv5HowUPDfbOISBwm0w+E5EJioBPUOv04DcZQVwSja+SlV5azi9udwh+t1R3CRK47Sw==&lt;/DSigValue&gt;&lt;AccumulatorValue&gt;JFXZU6fQFj4lRIB3CDtP/sWLYC3W3UjA/vxFsTl/9uFnoqvunr6fgMo+8iLcIt5Pzq/F4WIFH4D8pJNL9PE+zg==&lt;/AccumulatorValue&gt;&lt;/SignatureValue&gt;&lt;/Signature&gt;&lt;/Vehicle&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;Vehicle&gt;&lt;Aircraft id=&quot;a1&quot;&gt;&lt;Glider id=&quot;g1&quot;&gt;DG-800&lt;/Glider&gt;&lt;Jet id=&quot;j1&quot;&gt;Airbus A380&lt;/Jet&gt;&lt;/Aircraft&gt;&lt;Watercraft id=&quot;a2&quot;&gt;&lt;Sailboat&gt;Bavaria 36&lt;/Sailboat&gt;&lt;Motorboat&gt;Bavaria Sport 29&lt;/Motorboat&gt;&lt;/Watercraft&gt;&lt;MotorVehicles id=&quot;a3&quot;&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A3&quot;/&gt;&lt;Car Brand=&quot;Audi&quot; Model=&quot;A4&quot;/&gt;&lt;Car Brand=&quot;BMW&quot; Model=&quot;i7&quot;/&gt;&lt;Motorcycle Brand=&quot;Honda&quot; Model=&quot;RC212V&quot;/&gt;&lt;/MotorVehicles&gt;&lt;Signature xmlns=&quot;https://sec.uni-passau.de/2017/03/xmlrss&quot;&gt;&lt;SignatureInfo&gt;&lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2006/12/xml-c14n11#WithComments&quot;/&gt;&lt;RedactableSignatureAlgorithm Algorithm=&quot;http://sec.uni-passau.de/2017/xmlrss/gsrss&quot;/&gt;&lt;/SignatureInfo&gt;&lt;References&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a2'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;bHRltVUdK8tL+zGU616ti23bH+eBDvXsVL4V6tgAcAsd+9yYyhItHtcKqi4OBgVaB+NzN7iHfqtamy9istNNlw==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer URI=&quot;SignatureInfo&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;Mj7MZIXNfvNltCN154cFOeUys44XV0KQ8e/UCoMKuWilsTv8yqdayfJF/kdpqmXPxvr734FIMbCOM9nHcgqXGw==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a1'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;XSSUZyyofxKrIdLlxa0C295d8sPPxdghxKMwUasgiGl3db9U0fVLYVhYnK9Z1Ir7KEotkoYcOTtCaYBReTuJUA==&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;Reference&gt;&lt;Pointer Redactable=&quot;true&quot; URI=&quot;#xpointer(id('a3'))&quot;/&gt;&lt;Proof&gt;&lt;Data&gt;AJmQ+8illNWitMYn406PPnibfeic9OuJeJVtHNFL18F+A/Hi/e9aVWxhhajL1k2WIzDVyNT3so0E7cALnm2Cvf4=&lt;/Data&gt;&lt;/Proof&gt;&lt;/Reference&gt;&lt;/References&gt;&lt;SignatureValue&gt;&lt;DSigValue&gt;GrvoCBAc93qZodUuJR7Bv5HowUPDfbOISBwm0w+E5EJioBPUOv04DcZQVwSja+SlV5azi9udwh+t1R3CRK47Sw==&lt;/DSigValue&gt;&lt;AccumulatorValue&gt;ccdmxb/+3Z7ErJFMCz5LE8sV5uxqjvwl5VbBgtYkZDZBamgaIL4euaCeT4XwOW0oyt6cL6IJLJdY8L/+gJSvSw==&lt;/AccumulatorValue&gt;&lt;/SignatureValue&gt;&lt;/Signature&gt;&lt;/Vehicle&gt;</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at Mar 2, 2022 2:07:23 PM</p>
+</div>
+</div>
+</body>
+</html>
