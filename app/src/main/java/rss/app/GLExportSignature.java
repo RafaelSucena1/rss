@@ -1,5 +1,6 @@
 package rss.app;
 
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.SignatureOutput;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSPublicKey;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
 
@@ -16,15 +17,16 @@ public class GLExportSignature {
     private PublicKey dsigKey;
     private PublicKey accKey;
 
-    GLExportSignature (GLRSSSignatureOutput glrssSignatureOutput, GLRSSPublicKey glrssPublicKey) {
+    GLExportSignature (GLRSSSignatureOutput glrssSignatureOutput, PublicKey glrssPublicKey) {
         this.glrssSignatureOutput = glrssSignatureOutput;
         /**
          * get the public keys of the set rss and accumulator
          */
-        GSRSSPublicKey gsrssPublicKey = glrssPublicKey.getGsrssKey();
+        GSRSSPublicKey gsrssPublicKey = (GSRSSPublicKey) ((GLRSSPublicKey) glrssPublicKey).getGsrssKey();
         dsigKey = gsrssPublicKey.getDSigKey();
         accKey  = gsrssPublicKey.getAccumulatorKey();
     }
+
 
     /**
      * encoding what's in the parts but forgetting the rest
@@ -35,22 +37,48 @@ public class GLExportSignature {
         /**
          * prepare to encode as ASN.1
          */
+        ASN1EncodableVector mainVector = new ASN1EncodableVector(2);
+        ASN1EncodableVector signaturesVector = processKeys();
         ASN1EncodableVector vector = new ASN1EncodableVector(parts.size());
 
         for (GLRSSSignatureOutput.GLRSSSignedPart part : parts) {
 
-            vector.add(new DERBitString(part.getAccumulatorValue()));
-            vector.add(new DERBitString(part.getRandomValue()));
-            vector.add(new DERBitString(part.getGsProof()));
-            ASN1EncodableVector witnessesVector = new ASN1EncodableVector(part.getWitnesses().size());
+            ASN1EncodableVector vectGeneralPart = new ASN1EncodableVector();
+            vectGeneralPart.add(new DERBitString(part.getAccumulatorValue()));
+            vectGeneralPart.add(new DERBitString(part.getRandomValue()));
+            vectGeneralPart.add(new DERBitString(part.getGsProof()));
 
+            DERSequence v1 = new DERSequence(vectGeneralPart);
+
+            ASN1EncodableVector witnessesVector = new ASN1EncodableVector();
             for (ByteArray witness : part.getWitnesses()) {
                 witnessesVector.add(new DERBitString(witness.getArray()));
             }
-            vector.add((ASN1Encodable) witnessesVector);
-        }
 
-        return new DERSequence(vector);
+            DERSequence v2 = new DERSequence(witnessesVector);
+
+            ASN1EncodableVector vectorPart = new ASN1EncodableVector();
+            vectorPart.add(v1);
+            vectorPart.add(v2);
+
+            vector.add(new DERSequence(vectorPart));
+
+        }
+        mainVector.add(new DERSequence(signaturesVector));
+        mainVector.add(new DERSequence(vector));
+
+        return new DERSequence(mainVector);
+    }
+
+    /**
+     * process the public keys of gsRSS and accumulator
+     * I believe they're both RSA, which is freaking weird -> no FSS!!!
+     */
+    public ASN1EncodableVector processKeys () {
+        ASN1EncodableVector vector = new ASN1EncodableVector(2);
+        vector.add(new DERBitString(dsigKey.getEncoded()));
+        vector.add(new DERBitString(accKey.getEncoded()));
+        return vector;
     }
 
     public byte[] getEncoded () throws IOException {
@@ -58,12 +86,5 @@ public class GLExportSignature {
         return sequence.getEncoded();
     }
 
-    /**
-     * process the public keys of gsRSS and accumulator
-     * I believe they're both RSA, which is freaking weird -> no FSS!!!
-     */
-    public void processKeys () {
-
-    }
 
 }

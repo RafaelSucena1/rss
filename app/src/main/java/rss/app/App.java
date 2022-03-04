@@ -16,6 +16,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -50,13 +51,18 @@ public class App {
         RedactableSignature rss1 = initializeRss();
         RedactableSignature rss2 = initializeRss();
         SignatureOutput signFull = signDocByLine("test1.xml",  rss1);
-        SignatureOutput signRss  = signDocByLine("test1.xsd", rss2);
+
+        GLExportSignature glExportSignature = new GLExportSignature((GLRSSSignatureOutput) signFull, publicKey);
+        byte[] export  = glExportSignature.getEncoded();
+
+
+/*        SignatureOutput signRss  = signDocByLine("test1.xsd", rss2);
         rss1.initVerify(publicKey);
         if (rss1.verify(signFull)) {
             System.out.println("old signature still valid");
         } else {
             System.out.println("old signature not valid");
-        }
+        }*/
     }
 
     public RedactableSignature initializeRss() throws NoSuchAlgorithmException, InvalidKeyException {
@@ -65,7 +71,7 @@ public class App {
         return rss;
     }
 
-    public SignatureOutput signDocByLine(String file, RedactableSignature rss) throws IOException, RedactableSignatureException, InvalidKeyException, NoSuchAlgorithmException {
+    public GLRSSSignatureOutput signDocByLine(String file, RedactableSignature rss) throws IOException, RedactableSignatureException, InvalidKeyException, NoSuchAlgorithmException {
         List<String> linesList = Files.readAllLines(Paths.get("app/testdata/" + file));
         String[] linesArray = linesList.toArray(new String[0]);
         byte[] bArray;
@@ -79,20 +85,20 @@ public class App {
         for (String line : linesArray) {
             chunk = line.getBytes(StandardCharsets.UTF_8);
             if(line.startsWith("  ~")){
-                rssIdentifiers.add(rss.addPart(chunk, false));
+                rssIdentifiers.add(rss.addPart(chunk, true));
             } else {
-                notRssIdentifiers.add(rss.addPart(chunk, false));
+                notRssIdentifiers.add(rss.addPart(chunk, true));
             }
         }
 
-        SignatureOutput signatureOutput = rss.sign();
+        GLRSSSignatureOutput signatureOutput = (GLRSSSignatureOutput) rss.sign();
 
         /*for (Identifier identifier : rssIdentifiers){
 
             rss.addIdentifier(identifier);
         }*/
         rss.initRedact(publicKey);
-        SignatureOutput newSign = rss.redact(signatureOutput);
+        GLRSSSignatureOutput newSign = (GLRSSSignatureOutput) rss.redact(signatureOutput);
         //rss.initVerify(publicKey);
 
         return signatureOutput;
