@@ -17,6 +17,7 @@ dependencies {
     testImplementation 'junit:junit:4.11'
     implementation 'junit:junit:4.11'
     implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
+    implementation 'org.apache.pdfbox:pdfbox:3.0.0-RC1'
 }
 
 repositories {

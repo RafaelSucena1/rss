@@ -38,7 +38,7 @@ public class BPKeyPairGenerator extends KeyPairGeneratorSpi {
 
 
     private SecureRandom random = new SecureRandom();
-    private int keySize = 124;
+    private int keySize = 16;
 
     @Override
     public void initialize(int keysize, SecureRandom random) {

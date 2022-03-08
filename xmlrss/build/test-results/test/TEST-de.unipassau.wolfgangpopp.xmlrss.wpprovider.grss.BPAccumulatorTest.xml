@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.BPAccumulatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-02T14:07:18" hostname="sentinel" time="0.021">
+<testsuite name="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.BPAccumulatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-04T11:49:13" hostname="sentinel" time="0.028">
   <properties/>
-  <testcase name="testCreateAndVerifyWitness" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.BPAccumulatorTest" time="0.021"/>
+  <testcase name="testCreateAndVerifyWitness" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.BPAccumulatorTest" time="0.028"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2022-03-02T14:07:21" hostname="sentinel" time="0.024">
+<testsuite name="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2022-03-04T11:49:16" hostname="sentinel" time="0.044">
   <properties/>
   <testcase name="testAddDuplicateIdentifiers" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.0"/>
-  <testcase name="testRedactNonRedactable" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.002"/>
-  <testcase name="testAddDuplicateParts" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.0"/>
-  <testcase name="testSignSomeRedactable" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.002"/>
-  <testcase name="testRedactAndThenRedact" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.003"/>
-  <testcase name="testGetInstanceFromSpecificProviderObject" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.0"/>
+  <testcase name="testRedactNonRedactable" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.003"/>
+  <testcase name="testAddDuplicateParts" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.001"/>
+  <testcase name="testSignSomeRedactable" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.005"/>
+  <testcase name="testRedactAndThenRedact" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.007"/>
+  <testcase name="testGetInstanceFromSpecificProviderObject" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.001"/>
   <testcase name="testSignAndThenVerifyOnSameObject" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.001"/>
-  <testcase name="testGetInstanceFromSpecificProviderString" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.001"/>
-  <testcase name="testSignThenRedactAndThenVerifyOnSameOject" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.003"/>
+  <testcase name="testGetInstanceFromSpecificProviderString" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.0"/>
+  <testcase name="testSignThenRedactAndThenVerifyOnSameOject" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.007"/>
   <testcase name="testSignAndThenVerifyOnNewObject" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.001"/>
-  <testcase name="testSignAllRedactable" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.004"/>
-  <testcase name="testSignAndThenSign" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.002"/>
-  <testcase name="testSignThenRedactAndThenVerifyOnNewObject" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.002"/>
+  <testcase name="testSignAllRedactable" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.007"/>
+  <testcase name="testSignAndThenSign" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.005"/>
+  <testcase name="testSignThenRedactAndThenVerifyOnNewObject" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.003"/>
   <testcase name="testGetInstance" classname="de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRedactableSignatureTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
