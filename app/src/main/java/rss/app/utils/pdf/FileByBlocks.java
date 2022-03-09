@@ -1,4 +1,4 @@
-package rss.app;
+package rss.app.utils.pdf;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.apache.pdfbox.text.PDFTextStripper;
 public class FileByBlocks {
     private File file;
 
-    FileByBlocks(String fileName) {
+    public FileByBlocks(String fileName) {
         this.file = new File(fileName);
     }
 

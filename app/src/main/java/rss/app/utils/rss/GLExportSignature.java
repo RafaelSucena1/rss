@@ -1,4 +1,4 @@
-package rss.app;
+package rss.app.utils.rss;
 
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSPublicKey;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
@@ -26,7 +26,7 @@ public class GLExportSignature {
     private byte[] gsAccumulator;
     private byte[] gsDsigValue;
 
-    GLExportSignature (GLRSSSignatureOutput glrssSignatureOutput, PublicKey glrssPublicKey) {
+    public GLExportSignature(GLRSSSignatureOutput glrssSignatureOutput, PublicKey glrssPublicKey) {
         this.glrssSignatureOutput = glrssSignatureOutput;
         /**
          * get the public keys of the set rss and accumulator

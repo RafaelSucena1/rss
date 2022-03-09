@@ -1,4 +1,4 @@
-    0:d=0  hl=4 l=4116 cons: SEQUENCE          
+    0:d=0  hl=4 l=4118 cons: SEQUENCE          
     4:d=1  hl=4 l= 591 cons: SEQUENCE          
     8:d=2  hl=4 l= 311 cons: SEQUENCE          
    12:d=3  hl=4 l= 299 cons: SEQUENCE          
@@ -10,7 +10,7 @@
   331:d=4  hl=4 l= 257 prim: BIT STRING        
   592:d=3  hl=2 l=   5 cons: SEQUENCE          
   594:d=4  hl=2 l=   3 prim: BIT STRING        
-  599:d=1  hl=4 l=3517 cons: SEQUENCE          
+  599:d=1  hl=4 l=3519 cons: SEQUENCE          
   603:d=2  hl=2 l=  24 cons: SEQUENCE          
   605:d=3  hl=2 l=  15 cons: SEQUENCE          
   607:d=4  hl=2 l=   3 prim: BIT STRING        
@@ -56,717 +56,717 @@
   768:d=4  hl=2 l=   3 prim: BIT STRING        
   773:d=4  hl=2 l=   3 prim: BIT STRING        
   778:d=4  hl=2 l=   3 prim: BIT STRING        
-  783:d=2  hl=2 l=  49 cons: SEQUENCE          
-  785:d=3  hl=2 l=  15 cons: SEQUENCE          
+  783:d=2  hl=2 l=  50 cons: SEQUENCE          
+  785:d=3  hl=2 l=  16 cons: SEQUENCE          
   787:d=4  hl=2 l=   3 prim: BIT STRING        
   792:d=4  hl=2 l=   3 prim: BIT STRING        
-  797:d=4  hl=2 l=   3 prim: BIT STRING        
-  802:d=3  hl=2 l=  30 cons: SEQUENCE          
-  804:d=4  hl=2 l=   3 prim: BIT STRING        
-  809:d=4  hl=2 l=   3 prim: BIT STRING        
-  814:d=4  hl=2 l=   3 prim: BIT STRING        
-  819:d=4  hl=2 l=   3 prim: BIT STRING        
-  824:d=4  hl=2 l=   3 prim: BIT STRING        
-  829:d=4  hl=2 l=   3 prim: BIT STRING        
-  834:d=2  hl=2 l=  54 cons: SEQUENCE          
-  836:d=3  hl=2 l=  15 cons: SEQUENCE          
-  838:d=4  hl=2 l=   3 prim: BIT STRING        
-  843:d=4  hl=2 l=   3 prim: BIT STRING        
-  848:d=4  hl=2 l=   3 prim: BIT STRING        
-  853:d=3  hl=2 l=  35 cons: SEQUENCE          
-  855:d=4  hl=2 l=   3 prim: BIT STRING        
-  860:d=4  hl=2 l=   3 prim: BIT STRING        
-  865:d=4  hl=2 l=   3 prim: BIT STRING        
-  870:d=4  hl=2 l=   3 prim: BIT STRING        
-  875:d=4  hl=2 l=   3 prim: BIT STRING        
-  880:d=4  hl=2 l=   3 prim: BIT STRING        
-  885:d=4  hl=2 l=   3 prim: BIT STRING        
-  890:d=2  hl=2 l=  59 cons: SEQUENCE          
-  892:d=3  hl=2 l=  15 cons: SEQUENCE          
-  894:d=4  hl=2 l=   3 prim: BIT STRING        
-  899:d=4  hl=2 l=   3 prim: BIT STRING        
-  904:d=4  hl=2 l=   3 prim: BIT STRING        
-  909:d=3  hl=2 l=  40 cons: SEQUENCE          
-  911:d=4  hl=2 l=   3 prim: BIT STRING        
-  916:d=4  hl=2 l=   3 prim: BIT STRING        
-  921:d=4  hl=2 l=   3 prim: BIT STRING        
-  926:d=4  hl=2 l=   3 prim: BIT STRING        
-  931:d=4  hl=2 l=   3 prim: BIT STRING        
-  936:d=4  hl=2 l=   3 prim: BIT STRING        
-  941:d=4  hl=2 l=   3 prim: BIT STRING        
-  946:d=4  hl=2 l=   3 prim: BIT STRING        
-  951:d=2  hl=2 l=  64 cons: SEQUENCE          
-  953:d=3  hl=2 l=  15 cons: SEQUENCE          
-  955:d=4  hl=2 l=   3 prim: BIT STRING        
-  960:d=4  hl=2 l=   3 prim: BIT STRING        
-  965:d=4  hl=2 l=   3 prim: BIT STRING        
-  970:d=3  hl=2 l=  45 cons: SEQUENCE          
-  972:d=4  hl=2 l=   3 prim: BIT STRING        
-  977:d=4  hl=2 l=   3 prim: BIT STRING        
-  982:d=4  hl=2 l=   3 prim: BIT STRING        
-  987:d=4  hl=2 l=   3 prim: BIT STRING        
-  992:d=4  hl=2 l=   3 prim: BIT STRING        
-  997:d=4  hl=2 l=   3 prim: BIT STRING        
- 1002:d=4  hl=2 l=   3 prim: BIT STRING        
- 1007:d=4  hl=2 l=   3 prim: BIT STRING        
- 1012:d=4  hl=2 l=   3 prim: BIT STRING        
- 1017:d=2  hl=2 l=  69 cons: SEQUENCE          
- 1019:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1021:d=4  hl=2 l=   3 prim: BIT STRING        
- 1026:d=4  hl=2 l=   3 prim: BIT STRING        
- 1031:d=4  hl=2 l=   3 prim: BIT STRING        
- 1036:d=3  hl=2 l=  50 cons: SEQUENCE          
- 1038:d=4  hl=2 l=   3 prim: BIT STRING        
- 1043:d=4  hl=2 l=   3 prim: BIT STRING        
- 1048:d=4  hl=2 l=   3 prim: BIT STRING        
- 1053:d=4  hl=2 l=   3 prim: BIT STRING        
- 1058:d=4  hl=2 l=   3 prim: BIT STRING        
- 1063:d=4  hl=2 l=   3 prim: BIT STRING        
- 1068:d=4  hl=2 l=   3 prim: BIT STRING        
- 1073:d=4  hl=2 l=   3 prim: BIT STRING        
- 1078:d=4  hl=2 l=   3 prim: BIT STRING        
- 1083:d=4  hl=2 l=   3 prim: BIT STRING        
- 1088:d=2  hl=2 l=  74 cons: SEQUENCE          
- 1090:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1092:d=4  hl=2 l=   3 prim: BIT STRING        
- 1097:d=4  hl=2 l=   3 prim: BIT STRING        
- 1102:d=4  hl=2 l=   3 prim: BIT STRING        
- 1107:d=3  hl=2 l=  55 cons: SEQUENCE          
- 1109:d=4  hl=2 l=   3 prim: BIT STRING        
- 1114:d=4  hl=2 l=   3 prim: BIT STRING        
- 1119:d=4  hl=2 l=   3 prim: BIT STRING        
- 1124:d=4  hl=2 l=   3 prim: BIT STRING        
- 1129:d=4  hl=2 l=   3 prim: BIT STRING        
- 1134:d=4  hl=2 l=   3 prim: BIT STRING        
- 1139:d=4  hl=2 l=   3 prim: BIT STRING        
- 1144:d=4  hl=2 l=   3 prim: BIT STRING        
- 1149:d=4  hl=2 l=   3 prim: BIT STRING        
- 1154:d=4  hl=2 l=   3 prim: BIT STRING        
- 1159:d=4  hl=2 l=   3 prim: BIT STRING        
- 1164:d=2  hl=2 l=  78 cons: SEQUENCE          
- 1166:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1168:d=4  hl=2 l=   3 prim: BIT STRING        
- 1173:d=4  hl=2 l=   3 prim: BIT STRING        
- 1178:d=4  hl=2 l=   3 prim: BIT STRING        
- 1183:d=3  hl=2 l=  59 cons: SEQUENCE          
- 1185:d=4  hl=2 l=   3 prim: BIT STRING        
- 1190:d=4  hl=2 l=   3 prim: BIT STRING        
- 1195:d=4  hl=2 l=   3 prim: BIT STRING        
- 1200:d=4  hl=2 l=   3 prim: BIT STRING        
- 1205:d=4  hl=2 l=   2 prim: BIT STRING        
- 1209:d=4  hl=2 l=   3 prim: BIT STRING        
- 1214:d=4  hl=2 l=   3 prim: BIT STRING        
- 1219:d=4  hl=2 l=   3 prim: BIT STRING        
- 1224:d=4  hl=2 l=   3 prim: BIT STRING        
- 1229:d=4  hl=2 l=   3 prim: BIT STRING        
- 1234:d=4  hl=2 l=   3 prim: BIT STRING        
- 1239:d=4  hl=2 l=   3 prim: BIT STRING        
- 1244:d=2  hl=2 l=  84 cons: SEQUENCE          
- 1246:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1248:d=4  hl=2 l=   3 prim: BIT STRING        
- 1253:d=4  hl=2 l=   3 prim: BIT STRING        
- 1258:d=4  hl=2 l=   3 prim: BIT STRING        
- 1263:d=3  hl=2 l=  65 cons: SEQUENCE          
- 1265:d=4  hl=2 l=   3 prim: BIT STRING        
- 1270:d=4  hl=2 l=   3 prim: BIT STRING        
- 1275:d=4  hl=2 l=   3 prim: BIT STRING        
- 1280:d=4  hl=2 l=   3 prim: BIT STRING        
- 1285:d=4  hl=2 l=   3 prim: BIT STRING        
- 1290:d=4  hl=2 l=   3 prim: BIT STRING        
- 1295:d=4  hl=2 l=   3 prim: BIT STRING        
- 1300:d=4  hl=2 l=   3 prim: BIT STRING        
- 1305:d=4  hl=2 l=   3 prim: BIT STRING        
- 1310:d=4  hl=2 l=   3 prim: BIT STRING        
- 1315:d=4  hl=2 l=   3 prim: BIT STRING        
- 1320:d=4  hl=2 l=   3 prim: BIT STRING        
- 1325:d=4  hl=2 l=   3 prim: BIT STRING        
- 1330:d=2  hl=2 l=  89 cons: SEQUENCE          
- 1332:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1334:d=4  hl=2 l=   3 prim: BIT STRING        
- 1339:d=4  hl=2 l=   3 prim: BIT STRING        
- 1344:d=4  hl=2 l=   3 prim: BIT STRING        
- 1349:d=3  hl=2 l=  70 cons: SEQUENCE          
- 1351:d=4  hl=2 l=   3 prim: BIT STRING        
- 1356:d=4  hl=2 l=   3 prim: BIT STRING        
- 1361:d=4  hl=2 l=   3 prim: BIT STRING        
- 1366:d=4  hl=2 l=   3 prim: BIT STRING        
- 1371:d=4  hl=2 l=   3 prim: BIT STRING        
- 1376:d=4  hl=2 l=   3 prim: BIT STRING        
- 1381:d=4  hl=2 l=   3 prim: BIT STRING        
- 1386:d=4  hl=2 l=   3 prim: BIT STRING        
- 1391:d=4  hl=2 l=   3 prim: BIT STRING        
- 1396:d=4  hl=2 l=   3 prim: BIT STRING        
- 1401:d=4  hl=2 l=   3 prim: BIT STRING        
- 1406:d=4  hl=2 l=   3 prim: BIT STRING        
- 1411:d=4  hl=2 l=   3 prim: BIT STRING        
- 1416:d=4  hl=2 l=   3 prim: BIT STRING        
- 1421:d=2  hl=2 l=  94 cons: SEQUENCE          
- 1423:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1425:d=4  hl=2 l=   3 prim: BIT STRING        
- 1430:d=4  hl=2 l=   3 prim: BIT STRING        
- 1435:d=4  hl=2 l=   3 prim: BIT STRING        
- 1440:d=3  hl=2 l=  75 cons: SEQUENCE          
- 1442:d=4  hl=2 l=   3 prim: BIT STRING        
- 1447:d=4  hl=2 l=   3 prim: BIT STRING        
- 1452:d=4  hl=2 l=   3 prim: BIT STRING        
- 1457:d=4  hl=2 l=   3 prim: BIT STRING        
- 1462:d=4  hl=2 l=   3 prim: BIT STRING        
- 1467:d=4  hl=2 l=   3 prim: BIT STRING        
- 1472:d=4  hl=2 l=   3 prim: BIT STRING        
- 1477:d=4  hl=2 l=   3 prim: BIT STRING        
- 1482:d=4  hl=2 l=   3 prim: BIT STRING        
- 1487:d=4  hl=2 l=   3 prim: BIT STRING        
- 1492:d=4  hl=2 l=   3 prim: BIT STRING        
- 1497:d=4  hl=2 l=   3 prim: BIT STRING        
- 1502:d=4  hl=2 l=   3 prim: BIT STRING        
- 1507:d=4  hl=2 l=   3 prim: BIT STRING        
- 1512:d=4  hl=2 l=   3 prim: BIT STRING        
- 1517:d=2  hl=2 l=  99 cons: SEQUENCE          
- 1519:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1521:d=4  hl=2 l=   3 prim: BIT STRING        
- 1526:d=4  hl=2 l=   3 prim: BIT STRING        
- 1531:d=4  hl=2 l=   3 prim: BIT STRING        
- 1536:d=3  hl=2 l=  80 cons: SEQUENCE          
- 1538:d=4  hl=2 l=   3 prim: BIT STRING        
- 1543:d=4  hl=2 l=   3 prim: BIT STRING        
- 1548:d=4  hl=2 l=   3 prim: BIT STRING        
- 1553:d=4  hl=2 l=   3 prim: BIT STRING        
- 1558:d=4  hl=2 l=   3 prim: BIT STRING        
- 1563:d=4  hl=2 l=   3 prim: BIT STRING        
- 1568:d=4  hl=2 l=   3 prim: BIT STRING        
- 1573:d=4  hl=2 l=   3 prim: BIT STRING        
- 1578:d=4  hl=2 l=   3 prim: BIT STRING        
- 1583:d=4  hl=2 l=   3 prim: BIT STRING        
- 1588:d=4  hl=2 l=   3 prim: BIT STRING        
- 1593:d=4  hl=2 l=   3 prim: BIT STRING        
- 1598:d=4  hl=2 l=   3 prim: BIT STRING        
- 1603:d=4  hl=2 l=   3 prim: BIT STRING        
- 1608:d=4  hl=2 l=   3 prim: BIT STRING        
- 1613:d=4  hl=2 l=   3 prim: BIT STRING        
- 1618:d=2  hl=2 l= 104 cons: SEQUENCE          
- 1620:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1622:d=4  hl=2 l=   3 prim: BIT STRING        
- 1627:d=4  hl=2 l=   3 prim: BIT STRING        
- 1632:d=4  hl=2 l=   3 prim: BIT STRING        
- 1637:d=3  hl=2 l=  85 cons: SEQUENCE          
- 1639:d=4  hl=2 l=   3 prim: BIT STRING        
- 1644:d=4  hl=2 l=   3 prim: BIT STRING        
- 1649:d=4  hl=2 l=   3 prim: BIT STRING        
- 1654:d=4  hl=2 l=   3 prim: BIT STRING        
- 1659:d=4  hl=2 l=   3 prim: BIT STRING        
- 1664:d=4  hl=2 l=   3 prim: BIT STRING        
- 1669:d=4  hl=2 l=   3 prim: BIT STRING        
- 1674:d=4  hl=2 l=   3 prim: BIT STRING        
- 1679:d=4  hl=2 l=   3 prim: BIT STRING        
- 1684:d=4  hl=2 l=   3 prim: BIT STRING        
- 1689:d=4  hl=2 l=   3 prim: BIT STRING        
- 1694:d=4  hl=2 l=   3 prim: BIT STRING        
- 1699:d=4  hl=2 l=   3 prim: BIT STRING        
- 1704:d=4  hl=2 l=   3 prim: BIT STRING        
- 1709:d=4  hl=2 l=   3 prim: BIT STRING        
- 1714:d=4  hl=2 l=   3 prim: BIT STRING        
- 1719:d=4  hl=2 l=   3 prim: BIT STRING        
- 1724:d=2  hl=2 l= 109 cons: SEQUENCE          
- 1726:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1728:d=4  hl=2 l=   3 prim: BIT STRING        
- 1733:d=4  hl=2 l=   3 prim: BIT STRING        
- 1738:d=4  hl=2 l=   3 prim: BIT STRING        
- 1743:d=3  hl=2 l=  90 cons: SEQUENCE          
- 1745:d=4  hl=2 l=   3 prim: BIT STRING        
- 1750:d=4  hl=2 l=   3 prim: BIT STRING        
- 1755:d=4  hl=2 l=   3 prim: BIT STRING        
- 1760:d=4  hl=2 l=   3 prim: BIT STRING        
- 1765:d=4  hl=2 l=   3 prim: BIT STRING        
- 1770:d=4  hl=2 l=   3 prim: BIT STRING        
- 1775:d=4  hl=2 l=   3 prim: BIT STRING        
- 1780:d=4  hl=2 l=   3 prim: BIT STRING        
- 1785:d=4  hl=2 l=   3 prim: BIT STRING        
- 1790:d=4  hl=2 l=   3 prim: BIT STRING        
- 1795:d=4  hl=2 l=   3 prim: BIT STRING        
- 1800:d=4  hl=2 l=   3 prim: BIT STRING        
- 1805:d=4  hl=2 l=   3 prim: BIT STRING        
- 1810:d=4  hl=2 l=   3 prim: BIT STRING        
- 1815:d=4  hl=2 l=   3 prim: BIT STRING        
- 1820:d=4  hl=2 l=   3 prim: BIT STRING        
- 1825:d=4  hl=2 l=   3 prim: BIT STRING        
- 1830:d=4  hl=2 l=   3 prim: BIT STRING        
- 1835:d=2  hl=2 l= 114 cons: SEQUENCE          
- 1837:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1839:d=4  hl=2 l=   3 prim: BIT STRING        
- 1844:d=4  hl=2 l=   3 prim: BIT STRING        
- 1849:d=4  hl=2 l=   3 prim: BIT STRING        
- 1854:d=3  hl=2 l=  95 cons: SEQUENCE          
- 1856:d=4  hl=2 l=   3 prim: BIT STRING        
- 1861:d=4  hl=2 l=   3 prim: BIT STRING        
- 1866:d=4  hl=2 l=   3 prim: BIT STRING        
- 1871:d=4  hl=2 l=   3 prim: BIT STRING        
- 1876:d=4  hl=2 l=   3 prim: BIT STRING        
- 1881:d=4  hl=2 l=   3 prim: BIT STRING        
- 1886:d=4  hl=2 l=   3 prim: BIT STRING        
- 1891:d=4  hl=2 l=   3 prim: BIT STRING        
- 1896:d=4  hl=2 l=   3 prim: BIT STRING        
- 1901:d=4  hl=2 l=   3 prim: BIT STRING        
- 1906:d=4  hl=2 l=   3 prim: BIT STRING        
- 1911:d=4  hl=2 l=   3 prim: BIT STRING        
- 1916:d=4  hl=2 l=   3 prim: BIT STRING        
- 1921:d=4  hl=2 l=   3 prim: BIT STRING        
- 1926:d=4  hl=2 l=   3 prim: BIT STRING        
- 1931:d=4  hl=2 l=   3 prim: BIT STRING        
- 1936:d=4  hl=2 l=   3 prim: BIT STRING        
- 1941:d=4  hl=2 l=   3 prim: BIT STRING        
- 1946:d=4  hl=2 l=   3 prim: BIT STRING        
- 1951:d=2  hl=2 l= 119 cons: SEQUENCE          
- 1953:d=3  hl=2 l=  15 cons: SEQUENCE          
- 1955:d=4  hl=2 l=   3 prim: BIT STRING        
- 1960:d=4  hl=2 l=   3 prim: BIT STRING        
- 1965:d=4  hl=2 l=   3 prim: BIT STRING        
- 1970:d=3  hl=2 l= 100 cons: SEQUENCE          
- 1972:d=4  hl=2 l=   3 prim: BIT STRING        
- 1977:d=4  hl=2 l=   3 prim: BIT STRING        
- 1982:d=4  hl=2 l=   3 prim: BIT STRING        
- 1987:d=4  hl=2 l=   3 prim: BIT STRING        
- 1992:d=4  hl=2 l=   3 prim: BIT STRING        
- 1997:d=4  hl=2 l=   3 prim: BIT STRING        
- 2002:d=4  hl=2 l=   3 prim: BIT STRING        
- 2007:d=4  hl=2 l=   3 prim: BIT STRING        
- 2012:d=4  hl=2 l=   3 prim: BIT STRING        
- 2017:d=4  hl=2 l=   3 prim: BIT STRING        
- 2022:d=4  hl=2 l=   3 prim: BIT STRING        
- 2027:d=4  hl=2 l=   3 prim: BIT STRING        
- 2032:d=4  hl=2 l=   3 prim: BIT STRING        
- 2037:d=4  hl=2 l=   3 prim: BIT STRING        
- 2042:d=4  hl=2 l=   3 prim: BIT STRING        
- 2047:d=4  hl=2 l=   3 prim: BIT STRING        
- 2052:d=4  hl=2 l=   3 prim: BIT STRING        
- 2057:d=4  hl=2 l=   3 prim: BIT STRING        
- 2062:d=4  hl=2 l=   3 prim: BIT STRING        
- 2067:d=4  hl=2 l=   3 prim: BIT STRING        
- 2072:d=2  hl=2 l= 124 cons: SEQUENCE          
- 2074:d=3  hl=2 l=  15 cons: SEQUENCE          
- 2076:d=4  hl=2 l=   3 prim: BIT STRING        
- 2081:d=4  hl=2 l=   3 prim: BIT STRING        
- 2086:d=4  hl=2 l=   3 prim: BIT STRING        
- 2091:d=3  hl=2 l= 105 cons: SEQUENCE          
- 2093:d=4  hl=2 l=   3 prim: BIT STRING        
- 2098:d=4  hl=2 l=   3 prim: BIT STRING        
- 2103:d=4  hl=2 l=   3 prim: BIT STRING        
- 2108:d=4  hl=2 l=   3 prim: BIT STRING        
- 2113:d=4  hl=2 l=   3 prim: BIT STRING        
- 2118:d=4  hl=2 l=   3 prim: BIT STRING        
- 2123:d=4  hl=2 l=   3 prim: BIT STRING        
- 2128:d=4  hl=2 l=   3 prim: BIT STRING        
- 2133:d=4  hl=2 l=   3 prim: BIT STRING        
- 2138:d=4  hl=2 l=   3 prim: BIT STRING        
- 2143:d=4  hl=2 l=   3 prim: BIT STRING        
- 2148:d=4  hl=2 l=   3 prim: BIT STRING        
- 2153:d=4  hl=2 l=   3 prim: BIT STRING        
- 2158:d=4  hl=2 l=   3 prim: BIT STRING        
- 2163:d=4  hl=2 l=   3 prim: BIT STRING        
- 2168:d=4  hl=2 l=   3 prim: BIT STRING        
- 2173:d=4  hl=2 l=   3 prim: BIT STRING        
- 2178:d=4  hl=2 l=   3 prim: BIT STRING        
- 2183:d=4  hl=2 l=   3 prim: BIT STRING        
- 2188:d=4  hl=2 l=   3 prim: BIT STRING        
- 2193:d=4  hl=2 l=   3 prim: BIT STRING        
- 2198:d=2  hl=3 l= 128 cons: SEQUENCE          
- 2201:d=3  hl=2 l=  15 cons: SEQUENCE          
- 2203:d=4  hl=2 l=   3 prim: BIT STRING        
- 2208:d=4  hl=2 l=   3 prim: BIT STRING        
- 2213:d=4  hl=2 l=   3 prim: BIT STRING        
- 2218:d=3  hl=2 l= 109 cons: SEQUENCE          
- 2220:d=4  hl=2 l=   3 prim: BIT STRING        
- 2225:d=4  hl=2 l=   3 prim: BIT STRING        
- 2230:d=4  hl=2 l=   3 prim: BIT STRING        
- 2235:d=4  hl=2 l=   3 prim: BIT STRING        
- 2240:d=4  hl=2 l=   3 prim: BIT STRING        
- 2245:d=4  hl=2 l=   3 prim: BIT STRING        
- 2250:d=4  hl=2 l=   3 prim: BIT STRING        
- 2255:d=4  hl=2 l=   2 prim: BIT STRING        
- 2259:d=4  hl=2 l=   3 prim: BIT STRING        
- 2264:d=4  hl=2 l=   3 prim: BIT STRING        
- 2269:d=4  hl=2 l=   3 prim: BIT STRING        
- 2274:d=4  hl=2 l=   3 prim: BIT STRING        
- 2279:d=4  hl=2 l=   3 prim: BIT STRING        
- 2284:d=4  hl=2 l=   3 prim: BIT STRING        
- 2289:d=4  hl=2 l=   3 prim: BIT STRING        
- 2294:d=4  hl=2 l=   3 prim: BIT STRING        
- 2299:d=4  hl=2 l=   3 prim: BIT STRING        
- 2304:d=4  hl=2 l=   3 prim: BIT STRING        
- 2309:d=4  hl=2 l=   3 prim: BIT STRING        
- 2314:d=4  hl=2 l=   3 prim: BIT STRING        
- 2319:d=4  hl=2 l=   3 prim: BIT STRING        
- 2324:d=4  hl=2 l=   3 prim: BIT STRING        
- 2329:d=2  hl=3 l= 135 cons: SEQUENCE          
- 2332:d=3  hl=2 l=  16 cons: SEQUENCE          
- 2334:d=4  hl=2 l=   3 prim: BIT STRING        
- 2339:d=4  hl=2 l=   3 prim: BIT STRING        
- 2344:d=4  hl=2 l=   4 prim: BIT STRING        
- 2350:d=3  hl=2 l= 115 cons: SEQUENCE          
- 2352:d=4  hl=2 l=   3 prim: BIT STRING        
- 2357:d=4  hl=2 l=   3 prim: BIT STRING        
- 2362:d=4  hl=2 l=   3 prim: BIT STRING        
- 2367:d=4  hl=2 l=   3 prim: BIT STRING        
- 2372:d=4  hl=2 l=   3 prim: BIT STRING        
- 2377:d=4  hl=2 l=   3 prim: BIT STRING        
- 2382:d=4  hl=2 l=   3 prim: BIT STRING        
- 2387:d=4  hl=2 l=   3 prim: BIT STRING        
- 2392:d=4  hl=2 l=   3 prim: BIT STRING        
- 2397:d=4  hl=2 l=   3 prim: BIT STRING        
- 2402:d=4  hl=2 l=   3 prim: BIT STRING        
- 2407:d=4  hl=2 l=   3 prim: BIT STRING        
- 2412:d=4  hl=2 l=   3 prim: BIT STRING        
- 2417:d=4  hl=2 l=   3 prim: BIT STRING        
- 2422:d=4  hl=2 l=   3 prim: BIT STRING        
- 2427:d=4  hl=2 l=   3 prim: BIT STRING        
- 2432:d=4  hl=2 l=   3 prim: BIT STRING        
- 2437:d=4  hl=2 l=   3 prim: BIT STRING        
- 2442:d=4  hl=2 l=   3 prim: BIT STRING        
- 2447:d=4  hl=2 l=   3 prim: BIT STRING        
- 2452:d=4  hl=2 l=   3 prim: BIT STRING        
- 2457:d=4  hl=2 l=   3 prim: BIT STRING        
- 2462:d=4  hl=2 l=   3 prim: BIT STRING        
- 2467:d=2  hl=3 l= 139 cons: SEQUENCE          
- 2470:d=3  hl=2 l=  15 cons: SEQUENCE          
- 2472:d=4  hl=2 l=   3 prim: BIT STRING        
- 2477:d=4  hl=2 l=   3 prim: BIT STRING        
- 2482:d=4  hl=2 l=   3 prim: BIT STRING        
- 2487:d=3  hl=2 l= 120 cons: SEQUENCE          
- 2489:d=4  hl=2 l=   3 prim: BIT STRING        
- 2494:d=4  hl=2 l=   3 prim: BIT STRING        
- 2499:d=4  hl=2 l=   3 prim: BIT STRING        
- 2504:d=4  hl=2 l=   3 prim: BIT STRING        
- 2509:d=4  hl=2 l=   3 prim: BIT STRING        
- 2514:d=4  hl=2 l=   3 prim: BIT STRING        
- 2519:d=4  hl=2 l=   3 prim: BIT STRING        
- 2524:d=4  hl=2 l=   3 prim: BIT STRING        
- 2529:d=4  hl=2 l=   3 prim: BIT STRING        
- 2534:d=4  hl=2 l=   3 prim: BIT STRING        
- 2539:d=4  hl=2 l=   3 prim: BIT STRING        
- 2544:d=4  hl=2 l=   3 prim: BIT STRING        
- 2549:d=4  hl=2 l=   3 prim: BIT STRING        
- 2554:d=4  hl=2 l=   3 prim: BIT STRING        
- 2559:d=4  hl=2 l=   3 prim: BIT STRING        
- 2564:d=4  hl=2 l=   3 prim: BIT STRING        
- 2569:d=4  hl=2 l=   3 prim: BIT STRING        
- 2574:d=4  hl=2 l=   3 prim: BIT STRING        
- 2579:d=4  hl=2 l=   3 prim: BIT STRING        
- 2584:d=4  hl=2 l=   3 prim: BIT STRING        
- 2589:d=4  hl=2 l=   3 prim: BIT STRING        
- 2594:d=4  hl=2 l=   3 prim: BIT STRING        
- 2599:d=4  hl=2 l=   3 prim: BIT STRING        
- 2604:d=4  hl=2 l=   3 prim: BIT STRING        
- 2609:d=2  hl=3 l= 144 cons: SEQUENCE          
- 2612:d=3  hl=2 l=  15 cons: SEQUENCE          
- 2614:d=4  hl=2 l=   3 prim: BIT STRING        
- 2619:d=4  hl=2 l=   3 prim: BIT STRING        
- 2624:d=4  hl=2 l=   3 prim: BIT STRING        
- 2629:d=3  hl=2 l= 125 cons: SEQUENCE          
- 2631:d=4  hl=2 l=   3 prim: BIT STRING        
- 2636:d=4  hl=2 l=   3 prim: BIT STRING        
- 2641:d=4  hl=2 l=   3 prim: BIT STRING        
- 2646:d=4  hl=2 l=   3 prim: BIT STRING        
- 2651:d=4  hl=2 l=   3 prim: BIT STRING        
- 2656:d=4  hl=2 l=   3 prim: BIT STRING        
- 2661:d=4  hl=2 l=   3 prim: BIT STRING        
- 2666:d=4  hl=2 l=   3 prim: BIT STRING        
- 2671:d=4  hl=2 l=   3 prim: BIT STRING        
- 2676:d=4  hl=2 l=   3 prim: BIT STRING        
- 2681:d=4  hl=2 l=   3 prim: BIT STRING        
- 2686:d=4  hl=2 l=   3 prim: BIT STRING        
- 2691:d=4  hl=2 l=   3 prim: BIT STRING        
- 2696:d=4  hl=2 l=   3 prim: BIT STRING        
- 2701:d=4  hl=2 l=   3 prim: BIT STRING        
- 2706:d=4  hl=2 l=   3 prim: BIT STRING        
- 2711:d=4  hl=2 l=   3 prim: BIT STRING        
- 2716:d=4  hl=2 l=   3 prim: BIT STRING        
- 2721:d=4  hl=2 l=   3 prim: BIT STRING        
- 2726:d=4  hl=2 l=   3 prim: BIT STRING        
- 2731:d=4  hl=2 l=   3 prim: BIT STRING        
- 2736:d=4  hl=2 l=   3 prim: BIT STRING        
- 2741:d=4  hl=2 l=   3 prim: BIT STRING        
- 2746:d=4  hl=2 l=   3 prim: BIT STRING        
- 2751:d=4  hl=2 l=   3 prim: BIT STRING        
- 2756:d=2  hl=3 l= 150 cons: SEQUENCE          
- 2759:d=3  hl=2 l=  15 cons: SEQUENCE          
- 2761:d=4  hl=2 l=   3 prim: BIT STRING        
- 2766:d=4  hl=2 l=   3 prim: BIT STRING        
- 2771:d=4  hl=2 l=   3 prim: BIT STRING        
- 2776:d=3  hl=3 l= 130 cons: SEQUENCE          
- 2779:d=4  hl=2 l=   3 prim: BIT STRING        
- 2784:d=4  hl=2 l=   3 prim: BIT STRING        
- 2789:d=4  hl=2 l=   3 prim: BIT STRING        
- 2794:d=4  hl=2 l=   3 prim: BIT STRING        
- 2799:d=4  hl=2 l=   3 prim: BIT STRING        
- 2804:d=4  hl=2 l=   3 prim: BIT STRING        
- 2809:d=4  hl=2 l=   3 prim: BIT STRING        
- 2814:d=4  hl=2 l=   3 prim: BIT STRING        
- 2819:d=4  hl=2 l=   3 prim: BIT STRING        
- 2824:d=4  hl=2 l=   3 prim: BIT STRING        
- 2829:d=4  hl=2 l=   3 prim: BIT STRING        
- 2834:d=4  hl=2 l=   3 prim: BIT STRING        
- 2839:d=4  hl=2 l=   3 prim: BIT STRING        
- 2844:d=4  hl=2 l=   3 prim: BIT STRING        
- 2849:d=4  hl=2 l=   3 prim: BIT STRING        
- 2854:d=4  hl=2 l=   3 prim: BIT STRING        
- 2859:d=4  hl=2 l=   3 prim: BIT STRING        
- 2864:d=4  hl=2 l=   3 prim: BIT STRING        
- 2869:d=4  hl=2 l=   3 prim: BIT STRING        
- 2874:d=4  hl=2 l=   3 prim: BIT STRING        
- 2879:d=4  hl=2 l=   3 prim: BIT STRING        
- 2884:d=4  hl=2 l=   3 prim: BIT STRING        
- 2889:d=4  hl=2 l=   3 prim: BIT STRING        
- 2894:d=4  hl=2 l=   3 prim: BIT STRING        
- 2899:d=4  hl=2 l=   3 prim: BIT STRING        
- 2904:d=4  hl=2 l=   3 prim: BIT STRING        
- 2909:d=2  hl=3 l= 155 cons: SEQUENCE          
- 2912:d=3  hl=2 l=  15 cons: SEQUENCE          
- 2914:d=4  hl=2 l=   3 prim: BIT STRING        
- 2919:d=4  hl=2 l=   3 prim: BIT STRING        
- 2924:d=4  hl=2 l=   3 prim: BIT STRING        
- 2929:d=3  hl=3 l= 135 cons: SEQUENCE          
- 2932:d=4  hl=2 l=   3 prim: BIT STRING        
- 2937:d=4  hl=2 l=   3 prim: BIT STRING        
- 2942:d=4  hl=2 l=   3 prim: BIT STRING        
- 2947:d=4  hl=2 l=   3 prim: BIT STRING        
- 2952:d=4  hl=2 l=   3 prim: BIT STRING        
- 2957:d=4  hl=2 l=   3 prim: BIT STRING        
- 2962:d=4  hl=2 l=   3 prim: BIT STRING        
- 2967:d=4  hl=2 l=   3 prim: BIT STRING        
- 2972:d=4  hl=2 l=   3 prim: BIT STRING        
- 2977:d=4  hl=2 l=   3 prim: BIT STRING        
- 2982:d=4  hl=2 l=   3 prim: BIT STRING        
- 2987:d=4  hl=2 l=   3 prim: BIT STRING        
- 2992:d=4  hl=2 l=   3 prim: BIT STRING        
- 2997:d=4  hl=2 l=   3 prim: BIT STRING        
- 3002:d=4  hl=2 l=   3 prim: BIT STRING        
- 3007:d=4  hl=2 l=   3 prim: BIT STRING        
- 3012:d=4  hl=2 l=   3 prim: BIT STRING        
- 3017:d=4  hl=2 l=   3 prim: BIT STRING        
- 3022:d=4  hl=2 l=   3 prim: BIT STRING        
- 3027:d=4  hl=2 l=   3 prim: BIT STRING        
- 3032:d=4  hl=2 l=   3 prim: BIT STRING        
- 3037:d=4  hl=2 l=   3 prim: BIT STRING        
- 3042:d=4  hl=2 l=   3 prim: BIT STRING        
- 3047:d=4  hl=2 l=   3 prim: BIT STRING        
- 3052:d=4  hl=2 l=   3 prim: BIT STRING        
- 3057:d=4  hl=2 l=   3 prim: BIT STRING        
- 3062:d=4  hl=2 l=   3 prim: BIT STRING        
- 3067:d=2  hl=3 l= 160 cons: SEQUENCE          
- 3070:d=3  hl=2 l=  15 cons: SEQUENCE          
- 3072:d=4  hl=2 l=   3 prim: BIT STRING        
- 3077:d=4  hl=2 l=   3 prim: BIT STRING        
- 3082:d=4  hl=2 l=   3 prim: BIT STRING        
- 3087:d=3  hl=3 l= 140 cons: SEQUENCE          
- 3090:d=4  hl=2 l=   3 prim: BIT STRING        
- 3095:d=4  hl=2 l=   3 prim: BIT STRING        
- 3100:d=4  hl=2 l=   3 prim: BIT STRING        
- 3105:d=4  hl=2 l=   3 prim: BIT STRING        
- 3110:d=4  hl=2 l=   3 prim: BIT STRING        
- 3115:d=4  hl=2 l=   3 prim: BIT STRING        
- 3120:d=4  hl=2 l=   3 prim: BIT STRING        
- 3125:d=4  hl=2 l=   3 prim: BIT STRING        
- 3130:d=4  hl=2 l=   3 prim: BIT STRING        
- 3135:d=4  hl=2 l=   3 prim: BIT STRING        
- 3140:d=4  hl=2 l=   3 prim: BIT STRING        
- 3145:d=4  hl=2 l=   3 prim: BIT STRING        
- 3150:d=4  hl=2 l=   3 prim: BIT STRING        
- 3155:d=4  hl=2 l=   3 prim: BIT STRING        
- 3160:d=4  hl=2 l=   3 prim: BIT STRING        
- 3165:d=4  hl=2 l=   3 prim: BIT STRING        
- 3170:d=4  hl=2 l=   3 prim: BIT STRING        
- 3175:d=4  hl=2 l=   3 prim: BIT STRING        
- 3180:d=4  hl=2 l=   3 prim: BIT STRING        
- 3185:d=4  hl=2 l=   3 prim: BIT STRING        
- 3190:d=4  hl=2 l=   3 prim: BIT STRING        
- 3195:d=4  hl=2 l=   3 prim: BIT STRING        
- 3200:d=4  hl=2 l=   3 prim: BIT STRING        
- 3205:d=4  hl=2 l=   3 prim: BIT STRING        
- 3210:d=4  hl=2 l=   3 prim: BIT STRING        
- 3215:d=4  hl=2 l=   3 prim: BIT STRING        
- 3220:d=4  hl=2 l=   3 prim: BIT STRING        
- 3225:d=4  hl=2 l=   3 prim: BIT STRING        
- 3230:d=2  hl=3 l= 165 cons: SEQUENCE          
- 3233:d=3  hl=2 l=  15 cons: SEQUENCE          
- 3235:d=4  hl=2 l=   3 prim: BIT STRING        
- 3240:d=4  hl=2 l=   3 prim: BIT STRING        
- 3245:d=4  hl=2 l=   3 prim: BIT STRING        
- 3250:d=3  hl=3 l= 145 cons: SEQUENCE          
- 3253:d=4  hl=2 l=   3 prim: BIT STRING        
- 3258:d=4  hl=2 l=   3 prim: BIT STRING        
- 3263:d=4  hl=2 l=   3 prim: BIT STRING        
- 3268:d=4  hl=2 l=   3 prim: BIT STRING        
- 3273:d=4  hl=2 l=   3 prim: BIT STRING        
- 3278:d=4  hl=2 l=   3 prim: BIT STRING        
- 3283:d=4  hl=2 l=   3 prim: BIT STRING        
- 3288:d=4  hl=2 l=   3 prim: BIT STRING        
- 3293:d=4  hl=2 l=   3 prim: BIT STRING        
- 3298:d=4  hl=2 l=   3 prim: BIT STRING        
- 3303:d=4  hl=2 l=   3 prim: BIT STRING        
- 3308:d=4  hl=2 l=   3 prim: BIT STRING        
- 3313:d=4  hl=2 l=   3 prim: BIT STRING        
- 3318:d=4  hl=2 l=   3 prim: BIT STRING        
- 3323:d=4  hl=2 l=   3 prim: BIT STRING        
- 3328:d=4  hl=2 l=   3 prim: BIT STRING        
- 3333:d=4  hl=2 l=   3 prim: BIT STRING        
- 3338:d=4  hl=2 l=   3 prim: BIT STRING        
- 3343:d=4  hl=2 l=   3 prim: BIT STRING        
- 3348:d=4  hl=2 l=   3 prim: BIT STRING        
- 3353:d=4  hl=2 l=   3 prim: BIT STRING        
- 3358:d=4  hl=2 l=   3 prim: BIT STRING        
- 3363:d=4  hl=2 l=   3 prim: BIT STRING        
- 3368:d=4  hl=2 l=   3 prim: BIT STRING        
- 3373:d=4  hl=2 l=   3 prim: BIT STRING        
- 3378:d=4  hl=2 l=   3 prim: BIT STRING        
- 3383:d=4  hl=2 l=   3 prim: BIT STRING        
- 3388:d=4  hl=2 l=   3 prim: BIT STRING        
- 3393:d=4  hl=2 l=   3 prim: BIT STRING        
- 3398:d=2  hl=3 l= 170 cons: SEQUENCE          
- 3401:d=3  hl=2 l=  15 cons: SEQUENCE          
- 3403:d=4  hl=2 l=   3 prim: BIT STRING        
- 3408:d=4  hl=2 l=   3 prim: BIT STRING        
- 3413:d=4  hl=2 l=   3 prim: BIT STRING        
- 3418:d=3  hl=3 l= 150 cons: SEQUENCE          
- 3421:d=4  hl=2 l=   3 prim: BIT STRING        
- 3426:d=4  hl=2 l=   3 prim: BIT STRING        
- 3431:d=4  hl=2 l=   3 prim: BIT STRING        
- 3436:d=4  hl=2 l=   3 prim: BIT STRING        
- 3441:d=4  hl=2 l=   3 prim: BIT STRING        
- 3446:d=4  hl=2 l=   3 prim: BIT STRING        
- 3451:d=4  hl=2 l=   3 prim: BIT STRING        
- 3456:d=4  hl=2 l=   3 prim: BIT STRING        
- 3461:d=4  hl=2 l=   3 prim: BIT STRING        
- 3466:d=4  hl=2 l=   3 prim: BIT STRING        
- 3471:d=4  hl=2 l=   3 prim: BIT STRING        
- 3476:d=4  hl=2 l=   3 prim: BIT STRING        
- 3481:d=4  hl=2 l=   3 prim: BIT STRING        
- 3486:d=4  hl=2 l=   3 prim: BIT STRING        
- 3491:d=4  hl=2 l=   3 prim: BIT STRING        
- 3496:d=4  hl=2 l=   3 prim: BIT STRING        
- 3501:d=4  hl=2 l=   3 prim: BIT STRING        
- 3506:d=4  hl=2 l=   3 prim: BIT STRING        
- 3511:d=4  hl=2 l=   3 prim: BIT STRING        
- 3516:d=4  hl=2 l=   3 prim: BIT STRING        
- 3521:d=4  hl=2 l=   3 prim: BIT STRING        
- 3526:d=4  hl=2 l=   3 prim: BIT STRING        
- 3531:d=4  hl=2 l=   3 prim: BIT STRING        
- 3536:d=4  hl=2 l=   3 prim: BIT STRING        
- 3541:d=4  hl=2 l=   3 prim: BIT STRING        
- 3546:d=4  hl=2 l=   3 prim: BIT STRING        
- 3551:d=4  hl=2 l=   3 prim: BIT STRING        
- 3556:d=4  hl=2 l=   3 prim: BIT STRING        
- 3561:d=4  hl=2 l=   3 prim: BIT STRING        
- 3566:d=4  hl=2 l=   3 prim: BIT STRING        
- 3571:d=2  hl=3 l= 175 cons: SEQUENCE          
- 3574:d=3  hl=2 l=  15 cons: SEQUENCE          
- 3576:d=4  hl=2 l=   3 prim: BIT STRING        
- 3581:d=4  hl=2 l=   3 prim: BIT STRING        
- 3586:d=4  hl=2 l=   3 prim: BIT STRING        
- 3591:d=3  hl=3 l= 155 cons: SEQUENCE          
- 3594:d=4  hl=2 l=   3 prim: BIT STRING        
- 3599:d=4  hl=2 l=   3 prim: BIT STRING        
- 3604:d=4  hl=2 l=   3 prim: BIT STRING        
- 3609:d=4  hl=2 l=   3 prim: BIT STRING        
- 3614:d=4  hl=2 l=   3 prim: BIT STRING        
- 3619:d=4  hl=2 l=   3 prim: BIT STRING        
- 3624:d=4  hl=2 l=   3 prim: BIT STRING        
- 3629:d=4  hl=2 l=   3 prim: BIT STRING        
- 3634:d=4  hl=2 l=   3 prim: BIT STRING        
- 3639:d=4  hl=2 l=   3 prim: BIT STRING        
- 3644:d=4  hl=2 l=   3 prim: BIT STRING        
- 3649:d=4  hl=2 l=   3 prim: BIT STRING        
- 3654:d=4  hl=2 l=   3 prim: BIT STRING        
- 3659:d=4  hl=2 l=   3 prim: BIT STRING        
- 3664:d=4  hl=2 l=   3 prim: BIT STRING        
- 3669:d=4  hl=2 l=   3 prim: BIT STRING        
- 3674:d=4  hl=2 l=   3 prim: BIT STRING        
- 3679:d=4  hl=2 l=   3 prim: BIT STRING        
- 3684:d=4  hl=2 l=   3 prim: BIT STRING        
- 3689:d=4  hl=2 l=   3 prim: BIT STRING        
- 3694:d=4  hl=2 l=   3 prim: BIT STRING        
- 3699:d=4  hl=2 l=   3 prim: BIT STRING        
- 3704:d=4  hl=2 l=   3 prim: BIT STRING        
- 3709:d=4  hl=2 l=   3 prim: BIT STRING        
- 3714:d=4  hl=2 l=   3 prim: BIT STRING        
- 3719:d=4  hl=2 l=   3 prim: BIT STRING        
- 3724:d=4  hl=2 l=   3 prim: BIT STRING        
- 3729:d=4  hl=2 l=   3 prim: BIT STRING        
- 3734:d=4  hl=2 l=   3 prim: BIT STRING        
- 3739:d=4  hl=2 l=   3 prim: BIT STRING        
- 3744:d=4  hl=2 l=   3 prim: BIT STRING        
- 3749:d=2  hl=3 l= 180 cons: SEQUENCE          
- 3752:d=3  hl=2 l=  15 cons: SEQUENCE          
- 3754:d=4  hl=2 l=   3 prim: BIT STRING        
- 3759:d=4  hl=2 l=   3 prim: BIT STRING        
- 3764:d=4  hl=2 l=   3 prim: BIT STRING        
- 3769:d=3  hl=3 l= 160 cons: SEQUENCE          
- 3772:d=4  hl=2 l=   3 prim: BIT STRING        
- 3777:d=4  hl=2 l=   3 prim: BIT STRING        
- 3782:d=4  hl=2 l=   3 prim: BIT STRING        
- 3787:d=4  hl=2 l=   3 prim: BIT STRING        
- 3792:d=4  hl=2 l=   3 prim: BIT STRING        
- 3797:d=4  hl=2 l=   3 prim: BIT STRING        
- 3802:d=4  hl=2 l=   3 prim: BIT STRING        
- 3807:d=4  hl=2 l=   3 prim: BIT STRING        
- 3812:d=4  hl=2 l=   3 prim: BIT STRING        
- 3817:d=4  hl=2 l=   3 prim: BIT STRING        
- 3822:d=4  hl=2 l=   3 prim: BIT STRING        
- 3827:d=4  hl=2 l=   3 prim: BIT STRING        
- 3832:d=4  hl=2 l=   3 prim: BIT STRING        
- 3837:d=4  hl=2 l=   3 prim: BIT STRING        
- 3842:d=4  hl=2 l=   3 prim: BIT STRING        
- 3847:d=4  hl=2 l=   3 prim: BIT STRING        
- 3852:d=4  hl=2 l=   3 prim: BIT STRING        
- 3857:d=4  hl=2 l=   3 prim: BIT STRING        
- 3862:d=4  hl=2 l=   3 prim: BIT STRING        
- 3867:d=4  hl=2 l=   3 prim: BIT STRING        
- 3872:d=4  hl=2 l=   3 prim: BIT STRING        
- 3877:d=4  hl=2 l=   3 prim: BIT STRING        
- 3882:d=4  hl=2 l=   3 prim: BIT STRING        
- 3887:d=4  hl=2 l=   3 prim: BIT STRING        
- 3892:d=4  hl=2 l=   3 prim: BIT STRING        
- 3897:d=4  hl=2 l=   3 prim: BIT STRING        
- 3902:d=4  hl=2 l=   3 prim: BIT STRING        
- 3907:d=4  hl=2 l=   3 prim: BIT STRING        
- 3912:d=4  hl=2 l=   3 prim: BIT STRING        
- 3917:d=4  hl=2 l=   3 prim: BIT STRING        
- 3922:d=4  hl=2 l=   3 prim: BIT STRING        
- 3927:d=4  hl=2 l=   3 prim: BIT STRING        
- 3932:d=2  hl=3 l= 185 cons: SEQUENCE          
- 3935:d=3  hl=2 l=  15 cons: SEQUENCE          
- 3937:d=4  hl=2 l=   3 prim: BIT STRING        
- 3942:d=4  hl=2 l=   3 prim: BIT STRING        
- 3947:d=4  hl=2 l=   3 prim: BIT STRING        
- 3952:d=3  hl=3 l= 165 cons: SEQUENCE          
- 3955:d=4  hl=2 l=   3 prim: BIT STRING        
- 3960:d=4  hl=2 l=   3 prim: BIT STRING        
- 3965:d=4  hl=2 l=   3 prim: BIT STRING        
- 3970:d=4  hl=2 l=   3 prim: BIT STRING        
- 3975:d=4  hl=2 l=   3 prim: BIT STRING        
- 3980:d=4  hl=2 l=   3 prim: BIT STRING        
- 3985:d=4  hl=2 l=   3 prim: BIT STRING        
- 3990:d=4  hl=2 l=   3 prim: BIT STRING        
- 3995:d=4  hl=2 l=   3 prim: BIT STRING        
- 4000:d=4  hl=2 l=   3 prim: BIT STRING        
- 4005:d=4  hl=2 l=   3 prim: BIT STRING        
- 4010:d=4  hl=2 l=   3 prim: BIT STRING        
- 4015:d=4  hl=2 l=   3 prim: BIT STRING        
- 4020:d=4  hl=2 l=   3 prim: BIT STRING        
- 4025:d=4  hl=2 l=   3 prim: BIT STRING        
- 4030:d=4  hl=2 l=   3 prim: BIT STRING        
- 4035:d=4  hl=2 l=   3 prim: BIT STRING        
- 4040:d=4  hl=2 l=   3 prim: BIT STRING        
- 4045:d=4  hl=2 l=   3 prim: BIT STRING        
- 4050:d=4  hl=2 l=   3 prim: BIT STRING        
- 4055:d=4  hl=2 l=   3 prim: BIT STRING        
- 4060:d=4  hl=2 l=   3 prim: BIT STRING        
- 4065:d=4  hl=2 l=   3 prim: BIT STRING        
- 4070:d=4  hl=2 l=   3 prim: BIT STRING        
- 4075:d=4  hl=2 l=   3 prim: BIT STRING        
- 4080:d=4  hl=2 l=   3 prim: BIT STRING        
- 4085:d=4  hl=2 l=   3 prim: BIT STRING        
- 4090:d=4  hl=2 l=   3 prim: BIT STRING        
- 4095:d=4  hl=2 l=   3 prim: BIT STRING        
- 4100:d=4  hl=2 l=   3 prim: BIT STRING        
- 4105:d=4  hl=2 l=   3 prim: BIT STRING        
- 4110:d=4  hl=2 l=   3 prim: BIT STRING        
- 4115:d=4  hl=2 l=   3 prim: BIT STRING        
+  797:d=4  hl=2 l=   4 prim: BIT STRING        
+  803:d=3  hl=2 l=  30 cons: SEQUENCE          
+  805:d=4  hl=2 l=   3 prim: BIT STRING        
+  810:d=4  hl=2 l=   3 prim: BIT STRING        
+  815:d=4  hl=2 l=   3 prim: BIT STRING        
+  820:d=4  hl=2 l=   3 prim: BIT STRING        
+  825:d=4  hl=2 l=   3 prim: BIT STRING        
+  830:d=4  hl=2 l=   3 prim: BIT STRING        
+  835:d=2  hl=2 l=  54 cons: SEQUENCE          
+  837:d=3  hl=2 l=  15 cons: SEQUENCE          
+  839:d=4  hl=2 l=   3 prim: BIT STRING        
+  844:d=4  hl=2 l=   3 prim: BIT STRING        
+  849:d=4  hl=2 l=   3 prim: BIT STRING        
+  854:d=3  hl=2 l=  35 cons: SEQUENCE          
+  856:d=4  hl=2 l=   3 prim: BIT STRING        
+  861:d=4  hl=2 l=   3 prim: BIT STRING        
+  866:d=4  hl=2 l=   3 prim: BIT STRING        
+  871:d=4  hl=2 l=   3 prim: BIT STRING        
+  876:d=4  hl=2 l=   3 prim: BIT STRING        
+  881:d=4  hl=2 l=   3 prim: BIT STRING        
+  886:d=4  hl=2 l=   3 prim: BIT STRING        
+  891:d=2  hl=2 l=  59 cons: SEQUENCE          
+  893:d=3  hl=2 l=  15 cons: SEQUENCE          
+  895:d=4  hl=2 l=   3 prim: BIT STRING        
+  900:d=4  hl=2 l=   3 prim: BIT STRING        
+  905:d=4  hl=2 l=   3 prim: BIT STRING        
+  910:d=3  hl=2 l=  40 cons: SEQUENCE          
+  912:d=4  hl=2 l=   3 prim: BIT STRING        
+  917:d=4  hl=2 l=   3 prim: BIT STRING        
+  922:d=4  hl=2 l=   3 prim: BIT STRING        
+  927:d=4  hl=2 l=   3 prim: BIT STRING        
+  932:d=4  hl=2 l=   3 prim: BIT STRING        
+  937:d=4  hl=2 l=   3 prim: BIT STRING        
+  942:d=4  hl=2 l=   3 prim: BIT STRING        
+  947:d=4  hl=2 l=   3 prim: BIT STRING        
+  952:d=2  hl=2 l=  64 cons: SEQUENCE          
+  954:d=3  hl=2 l=  15 cons: SEQUENCE          
+  956:d=4  hl=2 l=   3 prim: BIT STRING        
+  961:d=4  hl=2 l=   3 prim: BIT STRING        
+  966:d=4  hl=2 l=   3 prim: BIT STRING        
+  971:d=3  hl=2 l=  45 cons: SEQUENCE          
+  973:d=4  hl=2 l=   3 prim: BIT STRING        
+  978:d=4  hl=2 l=   3 prim: BIT STRING        
+  983:d=4  hl=2 l=   3 prim: BIT STRING        
+  988:d=4  hl=2 l=   3 prim: BIT STRING        
+  993:d=4  hl=2 l=   3 prim: BIT STRING        
+  998:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1003:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1008:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1013:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1018:d=2  hl=2 l=  69 cons: SEQUENCE          
+ 1020:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1022:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1027:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1032:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1037:d=3  hl=2 l=  50 cons: SEQUENCE          
+ 1039:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1044:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1049:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1054:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1059:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1064:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1069:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1074:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1079:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1084:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1089:d=2  hl=2 l=  74 cons: SEQUENCE          
+ 1091:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1093:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1098:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1103:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1108:d=3  hl=2 l=  55 cons: SEQUENCE          
+ 1110:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1115:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1120:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1125:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1130:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1135:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1140:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1145:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1150:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1155:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1160:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1165:d=2  hl=2 l=  80 cons: SEQUENCE          
+ 1167:d=3  hl=2 l=  16 cons: SEQUENCE          
+ 1169:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1174:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1179:d=4  hl=2 l=   4 prim: BIT STRING        
+ 1185:d=3  hl=2 l=  60 cons: SEQUENCE          
+ 1187:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1192:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1197:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1202:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1207:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1212:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1217:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1222:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1227:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1232:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1237:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1242:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1247:d=2  hl=2 l=  84 cons: SEQUENCE          
+ 1249:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1251:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1256:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1261:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1266:d=3  hl=2 l=  65 cons: SEQUENCE          
+ 1268:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1273:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1278:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1283:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1288:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1293:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1298:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1303:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1308:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1313:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1318:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1323:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1328:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1333:d=2  hl=2 l=  89 cons: SEQUENCE          
+ 1335:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1337:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1342:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1347:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1352:d=3  hl=2 l=  70 cons: SEQUENCE          
+ 1354:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1359:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1364:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1369:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1374:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1379:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1384:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1389:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1394:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1399:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1404:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1409:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1414:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1419:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1424:d=2  hl=2 l=  94 cons: SEQUENCE          
+ 1426:d=3  hl=2 l=  16 cons: SEQUENCE          
+ 1428:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1433:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1438:d=4  hl=2 l=   4 prim: BIT STRING        
+ 1444:d=3  hl=2 l=  74 cons: SEQUENCE          
+ 1446:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1451:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1456:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1461:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1466:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1471:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1476:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1481:d=4  hl=2 l=   2 prim: BIT STRING        
+ 1485:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1490:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1495:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1500:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1505:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1510:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1515:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1520:d=2  hl=2 l=  99 cons: SEQUENCE          
+ 1522:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1524:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1529:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1534:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1539:d=3  hl=2 l=  80 cons: SEQUENCE          
+ 1541:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1546:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1551:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1556:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1561:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1566:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1571:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1576:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1581:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1586:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1591:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1596:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1601:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1606:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1611:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1616:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1621:d=2  hl=2 l= 104 cons: SEQUENCE          
+ 1623:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1625:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1630:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1635:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1640:d=3  hl=2 l=  85 cons: SEQUENCE          
+ 1642:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1647:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1652:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1657:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1662:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1667:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1672:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1677:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1682:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1687:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1692:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1697:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1702:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1707:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1712:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1717:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1722:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1727:d=2  hl=2 l= 109 cons: SEQUENCE          
+ 1729:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1731:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1736:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1741:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1746:d=3  hl=2 l=  90 cons: SEQUENCE          
+ 1748:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1753:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1758:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1763:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1768:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1773:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1778:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1783:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1788:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1793:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1798:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1803:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1808:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1813:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1818:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1823:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1828:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1833:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1838:d=2  hl=2 l= 114 cons: SEQUENCE          
+ 1840:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1842:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1847:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1852:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1857:d=3  hl=2 l=  95 cons: SEQUENCE          
+ 1859:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1864:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1869:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1874:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1879:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1884:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1889:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1894:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1899:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1904:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1909:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1914:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1919:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1924:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1929:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1934:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1939:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1944:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1949:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1954:d=2  hl=2 l= 119 cons: SEQUENCE          
+ 1956:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 1958:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1963:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1968:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1973:d=3  hl=2 l= 100 cons: SEQUENCE          
+ 1975:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1980:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1985:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1990:d=4  hl=2 l=   3 prim: BIT STRING        
+ 1995:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2000:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2005:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2010:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2015:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2020:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2025:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2030:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2035:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2040:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2045:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2050:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2055:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2060:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2065:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2070:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2075:d=2  hl=2 l= 124 cons: SEQUENCE          
+ 2077:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 2079:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2084:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2089:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2094:d=3  hl=2 l= 105 cons: SEQUENCE          
+ 2096:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2101:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2106:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2111:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2116:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2121:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2126:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2131:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2136:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2141:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2146:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2151:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2156:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2161:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2166:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2171:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2176:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2181:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2186:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2191:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2196:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2201:d=2  hl=3 l= 129 cons: SEQUENCE          
+ 2204:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 2206:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2211:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2216:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2221:d=3  hl=2 l= 110 cons: SEQUENCE          
+ 2223:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2228:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2233:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2238:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2243:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2248:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2253:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2258:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2263:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2268:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2273:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2278:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2283:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2288:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2293:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2298:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2303:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2308:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2313:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2318:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2323:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2328:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2333:d=2  hl=3 l= 134 cons: SEQUENCE          
+ 2336:d=3  hl=2 l=  16 cons: SEQUENCE          
+ 2338:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2343:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2348:d=4  hl=2 l=   4 prim: BIT STRING        
+ 2354:d=3  hl=2 l= 114 cons: SEQUENCE          
+ 2356:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2361:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2366:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2371:d=4  hl=2 l=   2 prim: BIT STRING        
+ 2375:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2380:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2385:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2390:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2395:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2400:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2405:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2410:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2415:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2420:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2425:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2430:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2435:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2440:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2445:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2450:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2455:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2460:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2465:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2470:d=2  hl=3 l= 139 cons: SEQUENCE          
+ 2473:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 2475:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2480:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2485:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2490:d=3  hl=2 l= 120 cons: SEQUENCE          
+ 2492:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2497:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2502:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2507:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2512:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2517:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2522:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2527:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2532:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2537:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2542:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2547:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2552:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2557:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2562:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2567:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2572:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2577:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2582:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2587:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2592:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2597:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2602:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2607:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2612:d=2  hl=3 l= 144 cons: SEQUENCE          
+ 2615:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 2617:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2622:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2627:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2632:d=3  hl=2 l= 125 cons: SEQUENCE          
+ 2634:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2639:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2644:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2649:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2654:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2659:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2664:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2669:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2674:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2679:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2684:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2689:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2694:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2699:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2704:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2709:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2714:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2719:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2724:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2729:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2734:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2739:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2744:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2749:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2754:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2759:d=2  hl=3 l= 150 cons: SEQUENCE          
+ 2762:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 2764:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2769:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2774:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2779:d=3  hl=3 l= 130 cons: SEQUENCE          
+ 2782:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2787:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2792:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2797:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2802:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2807:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2812:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2817:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2822:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2827:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2832:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2837:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2842:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2847:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2852:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2857:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2862:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2867:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2872:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2877:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2882:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2887:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2892:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2897:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2902:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2907:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2912:d=2  hl=3 l= 155 cons: SEQUENCE          
+ 2915:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 2917:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2922:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2927:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2932:d=3  hl=3 l= 135 cons: SEQUENCE          
+ 2935:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2940:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2945:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2950:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2955:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2960:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2965:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2970:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2975:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2980:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2985:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2990:d=4  hl=2 l=   3 prim: BIT STRING        
+ 2995:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3000:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3005:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3010:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3015:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3020:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3025:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3030:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3035:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3040:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3045:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3050:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3055:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3060:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3065:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3070:d=2  hl=3 l= 160 cons: SEQUENCE          
+ 3073:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 3075:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3080:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3085:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3090:d=3  hl=3 l= 140 cons: SEQUENCE          
+ 3093:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3098:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3103:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3108:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3113:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3118:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3123:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3128:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3133:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3138:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3143:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3148:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3153:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3158:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3163:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3168:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3173:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3178:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3183:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3188:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3193:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3198:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3203:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3208:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3213:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3218:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3223:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3228:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3233:d=2  hl=3 l= 165 cons: SEQUENCE          
+ 3236:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 3238:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3243:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3248:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3253:d=3  hl=3 l= 145 cons: SEQUENCE          
+ 3256:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3261:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3266:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3271:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3276:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3281:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3286:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3291:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3296:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3301:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3306:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3311:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3316:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3321:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3326:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3331:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3336:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3341:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3346:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3351:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3356:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3361:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3366:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3371:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3376:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3381:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3386:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3391:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3396:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3401:d=2  hl=3 l= 170 cons: SEQUENCE          
+ 3404:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 3406:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3411:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3416:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3421:d=3  hl=3 l= 150 cons: SEQUENCE          
+ 3424:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3429:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3434:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3439:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3444:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3449:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3454:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3459:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3464:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3469:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3474:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3479:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3484:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3489:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3494:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3499:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3504:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3509:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3514:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3519:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3524:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3529:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3534:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3539:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3544:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3549:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3554:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3559:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3564:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3569:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3574:d=2  hl=3 l= 175 cons: SEQUENCE          
+ 3577:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 3579:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3584:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3589:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3594:d=3  hl=3 l= 155 cons: SEQUENCE          
+ 3597:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3602:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3607:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3612:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3617:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3622:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3627:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3632:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3637:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3642:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3647:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3652:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3657:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3662:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3667:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3672:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3677:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3682:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3687:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3692:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3697:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3702:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3707:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3712:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3717:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3722:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3727:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3732:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3737:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3742:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3747:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3752:d=2  hl=3 l= 180 cons: SEQUENCE          
+ 3755:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 3757:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3762:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3767:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3772:d=3  hl=3 l= 160 cons: SEQUENCE          
+ 3775:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3780:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3785:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3790:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3795:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3800:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3805:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3810:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3815:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3820:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3825:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3830:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3835:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3840:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3845:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3850:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3855:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3860:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3865:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3870:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3875:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3880:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3885:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3890:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3895:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3900:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3905:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3910:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3915:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3920:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3925:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3930:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3935:d=2  hl=3 l= 184 cons: SEQUENCE          
+ 3938:d=3  hl=2 l=  15 cons: SEQUENCE          
+ 3940:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3945:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3950:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3955:d=3  hl=3 l= 164 cons: SEQUENCE          
+ 3958:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3963:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3968:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3973:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3978:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3983:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3988:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3993:d=4  hl=2 l=   3 prim: BIT STRING        
+ 3998:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4003:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4008:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4013:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4018:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4023:d=4  hl=2 l=   2 prim: BIT STRING        
+ 4027:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4032:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4037:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4042:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4047:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4052:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4057:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4062:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4067:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4072:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4077:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4082:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4087:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4092:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4097:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4102:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4107:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4112:d=4  hl=2 l=   3 prim: BIT STRING        
+ 4117:d=4  hl=2 l=   3 prim: BIT STRING        

@@ -6,16 +6,10 @@ package rss.app;
 
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.*;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignature;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignatureException;
-import org.w3c.dom.Document;
+import rss.app.utils.pdf.FileByBlocks;
+import rss.app.utils.rss.GLExportSignature;
+import rss.app.utils.rss.GLImportSignature;
 
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -29,7 +23,7 @@ public class App {
     private PublicKey publicKey;
     private KeyPair   glRssKeyPair;
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException, RedactableSignatureException {
+    public static void main(String[] args) throws Exception {
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         java.security.Security.addProvider(new WPProvider());
@@ -41,7 +35,7 @@ public class App {
     }
 
 
-    private void exportSignature() throws IOException, RedactableSignatureException, NoSuchAlgorithmException, InvalidKeyException {
+    private void exportSignature() throws Exception {
         System.out.println("reached exportSignature");
 
         SignatureOutput signatureOutput = this.testSign("name.pdf");
@@ -55,6 +49,7 @@ public class App {
 
         fileOutputStream.write(export);
         fileOutputStream.close();
+        GLImportSignature glImportSignature = new GLImportSignature(newFile);
     }
 
     public void initKeys() throws NoSuchAlgorithmException {
