@@ -5,6 +5,7 @@ import de.unipassau.wolfgangpopp.xmlrss.wpprovider.RedactableSignature;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.WPProvider;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.BPPrivateKey;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.BPPublicKey;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
 import org.apache.commons.io.FileUtils;
 import org.bouncycastle.asn1.*;
 
@@ -12,7 +13,9 @@ import java.io.*;
 import java.math.BigInteger;
 import java.security.*;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class GLImportSignature {
     private ASN1Sequence mainSequence;
@@ -24,6 +27,7 @@ public class GLImportSignature {
     private final Accumulator mainAccBP;
     private RedactableSignature rss;
     private byte[] gsSignature;
+    private List<GLRSSSignatureOutput.GLRSSSignedPart> parts;
 
 
     public GLImportSignature(File file) throws Exception {
@@ -77,6 +81,7 @@ public class GLImportSignature {
         }
 
         KeyPair mainAccKeyPair = generateBPKeyFromBytes(accBitString.getBytes());
+        accPublicKey = mainAccKeyPair.getPublic();
         mainAccBP.initWitness(mainAccKeyPair);
 
         ASN1Sequence mainSignaturesNState = (ASN1Sequence) keyAndDss.getObjectAt(1);
@@ -123,19 +128,34 @@ public class GLImportSignature {
     public KeyPair generateBPKeyFromBytes (byte[] bytes) {
         BigInteger bigInteger = new BigInteger(bytes);
         BPPublicKey bpPublicKey   = new BPPublicKey(bigInteger);
-        accPublicKey = bpPublicKey;
         BPPrivateKey bpPrivateKey = new BPPrivateKey();
         return new KeyPair(bpPublicKey, bpPrivateKey);
     }
 
 
     public void handleParts () throws Exception {
-        ASN1Sequence keyAndDss = (ASN1Sequence) mainSequence.getObjectAt(1);
-        if (keyAndDss == null) {
+        ASN1Sequence partsSequence = (ASN1Sequence) mainSequence.getObjectAt(1);
+        if (partsSequence == null) {
             throw new Exception("There are no parts presented");
         }
 
-        ASN1Sequence part
+
+        GLRSSSignatureOutput.Builder builder = new GLRSSSignatureOutput.Builder(partsSequence.size());
+        ASN1Sequence partSequence;
+        int i = 0;
+        while (partSequence = (ASN1Sequence)  partsSequence.getObjects().nextElement()) {
+            ASN1Sequence accRandProofSequence = partSequence.getObjectAt(0);
+            builder.setRedactable(i, isRedactable)
+                    .setRandomValue(i, randomValues[i])
+                    .setAccValue(i, accumulatorValue);
+            ASN1Sequence witnessSequence;
+            while (witnessSequence = (ASN1Sequence) accRandProofSequence.getObjectAt()) {
+
+
+            }
+            i++;
+        }
+
 
 
 
