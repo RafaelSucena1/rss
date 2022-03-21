@@ -23,17 +23,43 @@ public class App {
     private PublicKey publicKey;
     private KeyPair   glRssKeyPair;
 
+    private PublicKey importedPublicKey;
+    private PublicKey generatedPublicKey;
+
     public static void main(String[] args) throws Exception {
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         java.security.Security.addProvider(new WPProvider());
         App app = new App();
         app.exportSignature();
-
-
-
+        SignatureOutput signatureOutput = app.importSignature("name.pdf", "app/testdata/signature.sig");
+        RedactableSignature rss = RedactableSignature.getInstance("GLRSSwithRSAandBPA");
+        rss.initVerify(app.importedPublicKey);
+        boolean goodSign = rss.verify((GLRSSSignatureOutput) signatureOutput);
+        if(goodSign) {
+            System.out.println("the imported key is ok");
+        } else {
+            System.out.println("the imported key is  NOT NOT NOT  ok");
+        }
     }
 
+
+    public byte[][] getBytes(String fileName) {
+        FileByBlocks blocks = new FileByBlocks("app/testdata/" + fileName);
+        String[] linesArray = blocks.getFullText().split(System.lineSeparator());
+        byte[][] finalVariable = new byte[linesArray.length][];
+        int i = 0;
+        for (String line : linesArray) {
+            finalVariable[i] = line.getBytes(StandardCharsets.UTF_8);
+            i++;
+        }
+        return finalVariable;
+    }
+    private SignatureOutput importSignature(String doc, String signFile) throws Exception {
+        GLImportSignature glImportSignature = new GLImportSignature(new File(signFile));
+        this.importedPublicKey = glImportSignature.getPublicKey();
+        return glImportSignature.getSignatureOutput(getBytes(doc));
+    }
 
     private void exportSignature() throws Exception {
         System.out.println("reached exportSignature");
@@ -49,7 +75,6 @@ public class App {
 
         fileOutputStream.write(export);
         fileOutputStream.close();
-        GLImportSignature glImportSignature = new GLImportSignature(newFile);
     }
 
     public void initKeys() throws NoSuchAlgorithmException {

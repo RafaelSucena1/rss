@@ -33,7 +33,7 @@ public class GLExportSignature {
          */
         GSRSSPublicKey gsrssPublicKey = (GSRSSPublicKey) ((GLRSSPublicKey) glrssPublicKey).getGsrssKey();
         dsigKey = gsrssPublicKey.getDSigKey();
-        accKey  = gsrssPublicKey.getAccumulatorKey();
+        accKey  = ((GLRSSPublicKey) glrssPublicKey).getAccumulatorKey();
 
         gsAccumulator = glrssSignatureOutput.getGsAccumulator();
         gsDsigValue   = glrssSignatureOutput.getGsDsigValue();
@@ -54,6 +54,8 @@ public class GLExportSignature {
         for (GLRSSSignatureOutput.GLRSSSignedPart part : parts) {
 
             ASN1EncodableVector vectGeneralPart = new ASN1EncodableVector();
+            byte[] isRedactable = part.isRedactable() ? new byte[]{(byte) 0xFF} : new byte[]{(byte) 0x0};
+            vectGeneralPart.add(new DERBitString(isRedactable));
             vectGeneralPart.add(new DERBitString(part.getAccumulatorValue()));
             vectGeneralPart.add(new DERBitString(part.getRandomValue()));
             vectGeneralPart.add(new DERBitString(part.getGsProof()));

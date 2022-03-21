@@ -189,7 +189,21 @@ public class GLRSSSignatureOutput implements SignatureOutput {
             return this;
         }
 
-        Builder embedGSOutput(GSRSSSignatureOutput output) {
+        public byte[] getConcat (int index) {
+            return concat(parts[index].getMessagePart(),
+                    parts[index].getAccumulatorValue(),
+                    parts[index].getRandomValue());
+        }
+
+        public byte[] getGsProof (int index) {
+            return parts[index].gsProof;
+        }
+
+        public boolean getIsRedactable(int index) {
+            return parts[index].isRedactable;
+        }
+
+        public Builder embedGSOutput(GSRSSSignatureOutput output) {
             this.gsAccumulator = output.getAccumulatorValue();
             this.gsDsigValue = output.getDSigValue();
             for (GLRSSSignedPart part : parts) {

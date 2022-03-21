@@ -1,11 +1,9 @@
 package rss.app.utils.rss;
 
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.Accumulator;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.RedactableSignature;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.WPProvider;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.BPPrivateKey;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.BPPublicKey;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.AccumulatorException;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.*;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
 import org.apache.commons.io.FileUtils;
 import org.bouncycastle.asn1.*;
 
@@ -13,36 +11,39 @@ import java.io.*;
 import java.math.BigInteger;
 import java.security.*;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Enumeration;
 
 public class GLImportSignature {
     private ASN1Sequence mainSequence;
-    private ASN1Primitive generalKeysASN1Object;
-    private ASN1Primitive partsASN1Object;
-
     private PublicKey accPublicKey;
-    private PublicKey gsrssPublicKey;
-    private final Accumulator mainAccBP;
-    private RedactableSignature rss;
+    private Accumulator gsAccBP;
+    private GLRSSSignatureOutput.Builder builder;
     private byte[] gsSignature;
-    private List<GLRSSSignatureOutput.GLRSSSignedPart> parts;
+    public PublicKey generatedPublic;
 
 
-    public GLImportSignature(File file) throws Exception {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(FileUtils.readFileToByteArray(file));
+    public GLImportSignature(File signatureFile) throws Exception {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(FileUtils.readFileToByteArray(signatureFile));
         ASN1InputStream asnInputStream = new ASN1InputStream(byteArrayInputStream);
 
         ASN1Primitive mainASN1Object =  asnInputStream.readObject();
         mainSequence = ASN1Sequence.getInstance(mainASN1Object);
 
-        rss       = RedactableSignature.getInstance("GLRSSwithRSAandBPA");
-        mainAccBP = Accumulator.getInstance("BPA");
+        gsAccBP = Accumulator.getInstance("BPA");
         handleGeneralKeys();
-        handleParts();
+        builder = handleParts();
     }
 
+    public PublicKey getPublicKey(){
+        GSRSSPublicKey gsrssPublicKey = new GSRSSPublicKey("GSRSSwithRSAandBPA",this.generatedPublic, this.accPublicKey);
+        BPPublicKey    accKey         = (BPPublicKey) accPublicKey;
+        GLRSSPublicKey glrssPublicKey = new GLRSSPublicKey("GLRSSwithRSAandBPA",(PublicKey) gsrssPublicKey,(PublicKey) accKey);
+
+
+
+        return glrssPublicKey;
+    }
     /**
      * handles the loading of the GS keys
      * will call the handling of the signatures
@@ -67,7 +68,7 @@ public class GLImportSignature {
         /** the DSS signature for the non redactable elements is RSA in GL */
         byte[] pkBytes = pkBitString.getBytes();
         KeyFactory kf = KeyFactory.getInstance("RSA");
-        PublicKey generatedPublic = kf.generatePublic(new X509EncodedKeySpec(pkBytes));
+        generatedPublic = kf.generatePublic(new X509EncodedKeySpec(pkBytes));
 
         /** get the key from main accumulator (SET/GS) */
         DLSequence accKeySequence = (DLSequence) publicKeys.getObjectAt(1);
@@ -82,7 +83,7 @@ public class GLImportSignature {
 
         KeyPair mainAccKeyPair = generateBPKeyFromBytes(accBitString.getBytes());
         accPublicKey = mainAccKeyPair.getPublic();
-        mainAccBP.initWitness(mainAccKeyPair);
+        gsAccBP.initWitness(mainAccKeyPair);
 
         ASN1Sequence mainSignaturesNState = (ASN1Sequence) keyAndDss.getObjectAt(1);
         mainSignNState(mainSignaturesNState);
@@ -115,8 +116,8 @@ public class GLImportSignature {
         if (accBitString == null) {
             throw new Exception("No main acc. bit string");
         }
-        mainAccBP.initVerify(accPublicKey);
-        mainAccBP.restoreVerify(accBitString.getBytes());
+        gsAccBP.initVerify(accPublicKey);
+        gsAccBP.restoreVerify(accBitString.getBytes());
 
     }
 
@@ -133,7 +134,7 @@ public class GLImportSignature {
     }
 
 
-    public void handleParts () throws Exception {
+    public GLRSSSignatureOutput.Builder handleParts () throws Exception {
         ASN1Sequence partsSequence = (ASN1Sequence) mainSequence.getObjectAt(1);
         if (partsSequence == null) {
             throw new Exception("There are no parts presented");
@@ -141,24 +142,80 @@ public class GLImportSignature {
 
 
         GLRSSSignatureOutput.Builder builder = new GLRSSSignatureOutput.Builder(partsSequence.size());
+        Enumeration partSequences = partsSequence.getObjects();
         ASN1Sequence partSequence;
         int i = 0;
-        while (partSequence = (ASN1Sequence)  partsSequence.getObjects().nextElement()) {
-            ASN1Sequence accRandProofSequence = partSequence.getObjectAt(0);
+        do {
+            partSequence  = (ASN1Sequence) partSequences.nextElement();
+
+            ASN1Sequence accRandProofSequence = (ASN1Sequence) partSequence.getObjectAt(0);
+            /** if the i'th parth is redactable */
+            DERBitString isRedactableString = (DERBitString) accRandProofSequence.getObjectAt(0);
+            boolean isRedactable = Arrays.equals(isRedactableString.getBytes(), new byte[] {(byte) 0xFF});
+            /** the i'th acccumulator value */
+            byte[] accumulatorValue = ((DERBitString) accRandProofSequence.getObjectAt(1)).getBytes();
+            /** the i'th random value */
+            byte[] randomValue      = ((DERBitString) accRandProofSequence.getObjectAt(2)).getBytes();
+            /** the i'th witness */
+            byte[] gsWitness        = ((DERBitString) accRandProofSequence.getObjectAt(3)).getBytes();
+
+
+            /* the witness array for the part */
+            ASN1Sequence witnessSequence  = (ASN1Sequence) partSequence.getObjectAt(1);
+            Enumeration  witnesses        = witnessSequence.getObjects();
+            DERBitString witnessBitString;
+            do {
+                witnessBitString = (DERBitString) witnesses.nextElement();
+                builder.addWittness(i, witnessBitString.getBytes());
+            } while (witnesses.hasMoreElements());
+
+
             builder.setRedactable(i, isRedactable)
-                    .setRandomValue(i, randomValues[i])
-                    .setAccValue(i, accumulatorValue);
-            ASN1Sequence witnessSequence;
-            while (witnessSequence = (ASN1Sequence) accRandProofSequence.getObjectAt()) {
+                    .setRandomValue(i, randomValue)
+                    .setAccValue(i, accumulatorValue)
+                    .setGSProof(i, gsWitness);
 
-
-            }
             i++;
-        }
+        } while (partSequences.hasMoreElements());
 
-
-
-
+        return builder;
     }
 
+    /**
+     * provide the array of strings and
+     * get a fully prepared SignatureOutput for linear documents
+     * @param messages
+     * @return
+     */
+    public GLRSSSignatureOutput getSignatureOutput(byte[][] messages) throws AccumulatorException {
+        /**
+         * set the GsDss -> the RSA signature for the non redactable parts
+         * set the main accumultor
+         */
+        GSRSSSignatureOutput.Builder gsBuilder = new GSRSSSignatureOutput.Builder();
+        gsBuilder.setDSigValue(gsSignature);
+        gsBuilder.setAccumulatorValue(gsAccBP.getAccumulatorValue());
+        int i = 0;
+        for (byte[] message : messages) {
+            builder.setMessagePart(i, message);
+            gsBuilder.addSignedPart(builder.getConcat(i), builder.getGsProof(i), builder.getIsRedactable(i));
+            i++;
+        }
+        GSRSSSignatureOutput gsrssSignatureOutput = gsBuilder.build();
+
+        builder.embedGSOutput(gsrssSignatureOutput);
+
+        return builder.build();
+    }
+
+    /**
+     * helper function : concatenates all as byte[]
+     * @param messagePart
+     * @param accumulatorValue
+     * @param randomValue
+     * @return
+     */
+    static byte[] concat(byte[] messagePart, byte[] accumulatorValue, byte[] randomValue) {
+        return new ByteArray(messagePart).concat(accumulatorValue).concat(randomValue).getArray();
+    }
 }
