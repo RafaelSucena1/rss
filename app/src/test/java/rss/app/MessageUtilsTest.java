@@ -3,12 +3,13 @@
  */
 package rss.app;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class MessageUtilsTest {
-    @Test void testGetMessage() {
+public class MessageUtilsTest {
+    @Test
+    public void testGetMessage() {
         assertEquals("Hello      World!", MessageUtils.getMessage());
     }
 }

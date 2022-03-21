@@ -9,13 +9,16 @@ plugins {
 }
 
 sourceCompatibility = 1.8
+repositories { jcenter() }
 
 dependencies {
     implementation project(':xmlrss')
     implementation 'org.apache.commons:commons-text'
     testImplementation 'junit:junit:4.11'
     implementation 'junit:junit:4.11'
-    testImplementation project(path: ":xmlrss")
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
+    implementation 'org.apache.pdfbox:pdfbox:3.0.0-RC1'
+    implementation 'commons-io:commons-io:2.11.0'
 }
 
 repositories {
@@ -37,8 +40,7 @@ jar {
 
 
 test {
-    dependsOn(':xmlrss:test')
-    useJUnitPlatform()
+    useJUnit()
     testLogging {
         events "passed", "skipped", "failed"
         exceptionFormat "short"

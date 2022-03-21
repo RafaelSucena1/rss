@@ -6,19 +6,11 @@ package rss.app;
 
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.*;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignature;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.xml.RedactableXMLSignatureException;
-import org.w3c.dom.Document;
+import rss.app.utils.pdf.FileByBlocks;
+import rss.app.utils.rss.GLExportSignature;
+import rss.app.utils.rss.GLImportSignature;
 
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -31,13 +23,140 @@ public class App {
     private PublicKey publicKey;
     private KeyPair   glRssKeyPair;
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, RedactableXMLSignatureException, IOException, InvalidKeyException, TransformerException, RedactableSignatureException {
+    private PublicKey importedPublicKey;
+    private PublicKey generatedPublicKey;
+
+    public static void main(String[] args) throws Exception {
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
+        java.security.Security.addProvider(new WPProvider());
         App app = new App();
-        System.out.println("bye");
+        app.exportSignature();
+        SignatureOutput signatureOutput = app.importSignature("name.pdf", "app/testdata/signature.sig");
+        RedactableSignature rss = RedactableSignature.getInstance("GLRSSwithRSAandBPA");
+        rss.initVerify(app.importedPublicKey);
+        boolean goodSign = rss.verify((GLRSSSignatureOutput) signatureOutput);
+        if(goodSign) {
+            System.out.println("the imported key is ok");
+        } else {
+            System.out.println("the imported key is  NOT NOT NOT  ok");
+        }
     }
 
 
-    private App() throws NoSuchAlgorithmException, InvalidKeyException, IOException, RedactableSignatureException {
+    public byte[][] getBytes(String fileName) {
+        FileByBlocks blocks = new FileByBlocks("app/testdata/" + fileName);
+        String[] linesArray = blocks.getFullText().split(System.lineSeparator());
+        byte[][] finalVariable = new byte[linesArray.length][];
+        int i = 0;
+        for (String line : linesArray) {
+            finalVariable[i] = line.getBytes(StandardCharsets.UTF_8);
+            i++;
+        }
+        return finalVariable;
+    }
+    private SignatureOutput importSignature(String doc, String signFile) throws Exception {
+        GLImportSignature glImportSignature = new GLImportSignature(new File(signFile));
+        this.importedPublicKey = glImportSignature.getPublicKey();
+        return glImportSignature.getSignatureOutput(getBytes(doc));
+    }
+
+    private void exportSignature() throws Exception {
+        System.out.println("reached exportSignature");
+
+        SignatureOutput signatureOutput = this.testSign("name.pdf");
+        GLExportSignature glExportSignature = new GLExportSignature((GLRSSSignatureOutput) signatureOutput, glRssKeyPair.getPublic());
+
+        byte[] export = glExportSignature.getEncoded();
+        File newFile = new File("app/testdata/signature.sig");
+        newFile.delete();
+
+        FileOutputStream fileOutputStream = new FileOutputStream(newFile);
+
+        fileOutputStream.write(export);
+        fileOutputStream.close();
+    }
+
+    public void initKeys() throws NoSuchAlgorithmException {
+        KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
+
+        KeyPair glRssKeyPair = glRssGenerator.generateKeyPair();
+        this.glRssKeyPair = glRssKeyPair;
+        publicKey = glRssKeyPair.getPublic();
+
+    }
+
+    public App() throws RedactableSignatureException, IOException, NoSuchAlgorithmException, InvalidKeyException {
+    }
+
+    public SignatureOutput redact2(String fileName) throws NoSuchAlgorithmException, InvalidKeyException, RedactableSignatureException, IOException {
+        System.out.println("reached redact2");
+        FileByBlocks blocks = new FileByBlocks("app/testdata/" + fileName);
+
+        KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
+
+        KeyPair glRssKeyPair = glRssGenerator.generateKeyPair();
+        Base64.Encoder encoder = Base64.getEncoder();
+        System.out.println("public key: "+encoder.encodeToString(glRssKeyPair.getPublic().getEncoded()));
+        this.glRssKeyPair = glRssKeyPair;
+        System.out.println("finished generating keypair");
+        publicKey = glRssKeyPair.getPublic();
+
+        String[] linesArray = blocks.getFullText().split(System.lineSeparator());
+        byte[] bArray;
+        int max = linesArray.length - 1;
+        byte[][] linesAsBytes = new byte[max][];
+
+        List<Identifier> rssIdentifiers = new ArrayList<Identifier>();
+        RedactableSignature rss = initializeRss();
+        byte[] chunk;
+        for (String line : linesArray) {
+            chunk = line.getBytes(StandardCharsets.UTF_8);
+            rssIdentifiers.add(rss.addPart(chunk, true));
+        }
+
+        rss.initSign(glRssKeyPair);
+        SignatureOutput signatureOutput = rss.sign();
+        return signatureOutput;
+        /*for (Identifier identifier : rssIdentifiers){
+
+            rss.addIdentifier(identifier);
+        }*/
+/*        rss.initRedact(publicKey);
+        SignatureOutput newSign = rss.redact(signatureOutput);*/
+    }
+
+    public SignatureOutput testSign(String fileName) throws NoSuchAlgorithmException, InvalidKeyException, RedactableSignatureException, IOException {
+        System.out.println("reached testSign");
+        FileByBlocks blocks = new FileByBlocks("app/testdata/" + fileName);
+        String[] linesArray = blocks.getFullText().split(System.lineSeparator());
+
+        this.initKeys();
+
+
+        byte[] bArray;
+        int max = linesArray.length - 1;
+        byte[][] linesAsBytes = new byte[max][];
+
+        List<Identifier> rssIdentifiers = new ArrayList<Identifier>();
+        RedactableSignature rss = initializeRss();
+        byte[] chunk;
+        rss.initSign(glRssKeyPair);
+
+        for (String line : linesArray) {
+            System.out.println(line);
+            chunk = line.getBytes(StandardCharsets.UTF_8);
+            rssIdentifiers.add(rss.addPart(chunk));
+        }
+
+        SignatureOutput signatureOutput = rss.sign();
+        rss.initVerify(publicKey);
+        System.out.println(rss.verify(signatureOutput) ? "signature TRUE" : "Signature FALSE");
+        return signatureOutput;
+
+    }
+
+        public void redact() throws NoSuchAlgorithmException, InvalidKeyException, IOException, RedactableSignatureException {
         java.security.Security.addProvider(new WPProvider());
         KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
 
@@ -48,15 +167,20 @@ public class App {
         publicKey = glRssKeyPair.getPublic();
 
         RedactableSignature rss1 = initializeRss();
-        RedactableSignature rss2 = initializeRss();
+        //RedactableSignature rss2 = initializeRss();
         SignatureOutput signFull = signDocByLine("test1.xml",  rss1);
-        SignatureOutput signRss  = signDocByLine("test1.xsd", rss2);
+
+        GLExportSignature glExportSignature = new GLExportSignature((GLRSSSignatureOutput) signFull, publicKey);
+        byte[] export  = glExportSignature.getEncoded();
+
+
+/*        SignatureOutput signRss  = signDocByLine("test1.xsd", rss2);
         rss1.initVerify(publicKey);
         if (rss1.verify(signFull)) {
             System.out.println("old signature still valid");
         } else {
             System.out.println("old signature not valid");
-        }
+        }*/
     }
 
     public RedactableSignature initializeRss() throws NoSuchAlgorithmException, InvalidKeyException {
@@ -79,7 +203,7 @@ public class App {
         for (String line : linesArray) {
             chunk = line.getBytes(StandardCharsets.UTF_8);
             if(line.startsWith("  ~")){
-                rssIdentifiers.add(rss.addPart(chunk, false));
+                rssIdentifiers.add(rss.addPart(chunk));
             } else {
                 notRssIdentifiers.add(rss.addPart(chunk, false));
             }

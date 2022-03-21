@@ -30,6 +30,7 @@ import java.security.KeyPair;
 import java.security.Security;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Wolfgang Popp

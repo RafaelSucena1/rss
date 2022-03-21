@@ -31,4 +31,9 @@ public class BPPublicKey extends BPKey implements PublicKey {
     public BPPublicKey(BigInteger key) {
         super(key);
     }
+
+    @Override
+    public byte[] getEncoded() {
+        return super.getKey().toByteArray();
+    }
 }
