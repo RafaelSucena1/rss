@@ -100,6 +100,12 @@ public abstract class GSRedactableSignature extends RedactableSignatureSpi {
     }
 
     @Override
+    protected void engineInitExtractRedactable(PublicKey publicKey) throws InvalidKeyException {
+        reset();
+        checkAndSetPublicKey(publicKey);
+    }
+
+    @Override
     protected Identifier engineAddPart(byte[] part, boolean isRedactable) throws RedactableSignatureException {
         if (messageParts.put(new ByteArray(part), isRedactable) != null) {
             throw new RedactableSignatureException(
@@ -234,6 +240,41 @@ public abstract class GSRedactableSignature extends RedactableSignatureSpi {
         }
 
         messageParts.clear();
+
+        return builder.build();
+    }
+
+    /**
+     *
+     * @param signature
+     * @return
+     * @throws RedactableSignatureException
+     */
+    @Override
+    public SignatureOutput engineExtractRedactable(SignatureOutput signature) throws RedactableSignatureException {
+        if (!(signature instanceof GSRSSSignatureOutput)) {
+            throw new RedactableSignatureException("wrong signature type");
+        }
+        GSRSSSignatureOutput signatureOutput = (GSRSSSignatureOutput) signature;
+        GSRSSSignatureOutput.Builder builder = new GSRSSSignatureOutput.Builder();
+        Map<ByteArray, byte[]> signedParts = signatureOutput.getParts();
+        Set<ByteArray> parts = signedParts.keySet();
+        Set<ByteArray> nonRedactableParts = signatureOutput.getNonRedactableParts();
+
+        builder.setDSigValue(signatureOutput.getDSigValue())
+                .setAccumulatorValue(signatureOutput.getAccumulatorValue());
+
+        for (ByteArray messagePart : messageParts.keySet()) {
+            if (nonRedactableParts.contains(messagePart)) {
+                throw new RedactableSignatureException("Cannot perform the redaction since a given part is not redactable");
+            }
+        }
+
+        for (ByteArray part : parts) {
+            if (messageParts.keySet().contains(part)) {
+                builder.addSignedPart(part, signedParts.get(part), signatureOutput.isRedactable(new Identifier(part)));
+            }
+        }
 
         return builder.build();
     }

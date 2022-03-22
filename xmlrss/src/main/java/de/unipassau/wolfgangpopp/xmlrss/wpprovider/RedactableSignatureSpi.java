@@ -70,6 +70,8 @@ public abstract class RedactableSignatureSpi {
      */
     protected abstract void engineInitRedact(PublicKey publicKey) throws InvalidKeyException;
 
+
+    protected abstract void engineInitExtractRedactable(PublicKey publicKey) throws InvalidKeyException;
     /**
      * Initializes this redactable signature engine for merging.
      * <p>
@@ -151,6 +153,7 @@ public abstract class RedactableSignatureSpi {
      */
     protected abstract SignatureOutput engineRedact(SignatureOutput signature) throws RedactableSignatureException;
 
+    protected abstract SignatureOutput engineExtractRedactable(SignatureOutput signature) throws RedactableSignatureException;
     /**
      * Merges the two given signatures.
      * <p>

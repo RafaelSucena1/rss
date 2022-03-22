@@ -26,11 +26,52 @@ public class App {
     private PublicKey importedPublicKey;
     private PublicKey generatedPublicKey;
 
+    public SignatureOutput redact3(String fileName) throws NoSuchAlgorithmException, InvalidKeyException, RedactableSignatureException, IOException {
+        System.out.println("reached redact2");
+        FileByBlocks blocks = new FileByBlocks("app/testdata/" + fileName);
+
+        KeyPairGenerator glRssGenerator = KeyPairGenerator.getInstance("GLRSSwithRSAandBPA");
+
+        KeyPair glRssKeyPair = glRssGenerator.generateKeyPair();
+        Base64.Encoder encoder = Base64.getEncoder();
+        System.out.println("public key: "+encoder.encodeToString(glRssKeyPair.getPublic().getEncoded()));
+        this.glRssKeyPair = glRssKeyPair;
+        System.out.println("finished generating keypair");
+        publicKey = glRssKeyPair.getPublic();
+
+        String[] linesArray = blocks.getFullText().split(System.lineSeparator());
+        byte[] bArray;
+        int max = linesArray.length - 1;
+        byte[][] linesAsBytes = new byte[max][];
+
+        List<Identifier> rssIdentifiers = new ArrayList<Identifier>();
+        RedactableSignature rss = initializeRss();
+        byte[] chunk;
+
+        int i = 1;
+        for (String line : linesArray) {
+            chunk = line.getBytes(StandardCharsets.UTF_8);
+            rssIdentifiers.add(rss.addPart(chunk, (i % 2 == 0)));
+            i++;
+        }
+
+        SignatureOutput signatureOutput = rss.sign();
+
+        rss.initExtractRedactable(glRssKeyPair.getPublic());
+        SignatureOutput out  = rss.extractRedactable(signatureOutput);
+        int x= 1;
+        return signatureOutput;
+    }
+
     public static void main(String[] args) throws Exception {
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         java.security.Security.addProvider(new WPProvider());
         App app = new App();
+
+        app.redact3("name.pdf");
+
+        /*
         app.exportSignature();
         SignatureOutput signatureOutput = app.importSignature("name.pdf", "app/testdata/signature.sig");
         RedactableSignature rss = RedactableSignature.getInstance("GLRSSwithRSAandBPA");
@@ -41,6 +82,8 @@ public class App {
         } else {
             System.out.println("the imported key is  NOT NOT NOT  ok");
         }
+
+         */
     }
 
 
@@ -86,8 +129,6 @@ public class App {
 
     }
 
-    public App() throws RedactableSignatureException, IOException, NoSuchAlgorithmException, InvalidKeyException {
-    }
 
     public SignatureOutput redact2(String fileName) throws NoSuchAlgorithmException, InvalidKeyException, RedactableSignatureException, IOException {
         System.out.println("reached redact2");
@@ -110,6 +151,7 @@ public class App {
         List<Identifier> rssIdentifiers = new ArrayList<Identifier>();
         RedactableSignature rss = initializeRss();
         byte[] chunk;
+
         for (String line : linesArray) {
             chunk = line.getBytes(StandardCharsets.UTF_8);
             rssIdentifiers.add(rss.addPart(chunk, true));

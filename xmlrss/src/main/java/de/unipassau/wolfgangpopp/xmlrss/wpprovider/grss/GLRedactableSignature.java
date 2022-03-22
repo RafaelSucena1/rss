@@ -108,6 +108,13 @@ public abstract class GLRedactableSignature extends RedactableSignatureSpi {
     }
 
     @Override
+    protected void engineInitExtractRedactable(PublicKey publicKey) throws InvalidKeyException {
+        reset();
+        checkAndSetPublicKey(publicKey);
+        gsrss.initExtractRedactable(gsrssPublicKey);
+    }
+
+    @Override
     protected Identifier engineAddPart(byte[] part, boolean isRedactable) throws RedactableSignatureException {
         this.parts.add(new ByteArray(part));
         this.isRedactable.add(isRedactable);
@@ -235,6 +242,58 @@ public abstract class GLRedactableSignature extends RedactableSignatureSpi {
         builder.embedGSOutput((GSRSSSignatureOutput) gsrss.redact(original.extractGSOutput()));
 
         identifiers.clear();
+
+        return builder.build();
+    }
+
+    /**
+     *
+     * @param signature
+     * @return
+     * @throws RedactableSignatureException
+     */
+    @Override
+    public SignatureOutput engineExtractRedactable(SignatureOutput signature) throws RedactableSignatureException {
+        if (!(signature instanceof GLRSSSignatureOutput)) {
+            throw new RedactableSignatureException("wrong signature type");
+        }
+
+        GLRSSSignatureOutput glrssSignatureOutput = (GLRSSSignatureOutput) signature;
+
+        List<GLRSSSignatureOutput.GLRSSSignedPart> parts = ((GLRSSSignatureOutput) glrssSignatureOutput).getParts();
+        List<GLRSSSignatureOutput.GLRSSSignedPart> redactableParts = new ArrayList<>();
+
+        for(GLRSSSignatureOutput.GLRSSSignedPart part : parts) {
+            if(part.isRedactable()) {
+                redactableParts.add(part);
+            }
+        }
+
+        GLRSSSignatureOutput.Builder builder = new GLRSSSignatureOutput.Builder(redactableParts.size());
+
+
+        int builderIndex = 0;
+        for(GLRSSSignatureOutput.GLRSSSignedPart redactablePart : redactableParts){
+            ArrayList<ByteArray> copy = new ArrayList<>(redactablePart.getWitnesses());
+            removeWitnesses(copy);
+
+            builder.setMessagePart(builderIndex, redactablePart.getMessagePart())
+                    .setRedactable(builderIndex, true)
+                    .setRandomValue(builderIndex, redactablePart.getRandomValue())
+                    .setAccValue(builderIndex, redactablePart.getAccumulatorValue())
+                    .setWitnesses(builderIndex, copy);
+            ++builderIndex;
+
+            byte[] concat = GLRSSSignatureOutput.
+                    concat(redactablePart.getMessagePart(),
+                            redactablePart.getAccumulatorValue(),
+                            redactablePart.getRandomValue());
+
+            gsrss.addPart(concat, true);
+
+        }
+
+        builder.embedGSOutput((GSRSSSignatureOutput) gsrss.extractRedactable(glrssSignatureOutput.extractGSOutput()));
 
         return builder.build();
     }

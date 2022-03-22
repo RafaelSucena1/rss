@@ -20,6 +20,7 @@
 
 package de.unipassau.wolfgangpopp.xmlrss.wpprovider;
 
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GSRSSSignatureOutput;
 import sun.security.jca.GetInstance;
 
 import java.security.AlgorithmParameters;
@@ -86,7 +87,7 @@ public abstract class RedactableSignature {
     private static final String TYPE = "RedactableSignature";
 
     private enum STATE {
-        UNINITIALIZED, SIGN, REDACT, VERIFY, UPDATE, MERGE
+        UNINITIALIZED, SIGN, REDACT, EXTRACTREDACTABLE, VERIFY, UPDATE, MERGE
     }
 
     /**
@@ -256,6 +257,12 @@ public abstract class RedactableSignature {
         engine.engineInitRedact(publicKey);
     }
 
+
+    public final void initExtractRedactable(PublicKey publicKey) throws InvalidKeyException {
+        state = STATE.EXTRACTREDACTABLE;
+        engine.engineInitExtractRedactable(publicKey);
+    }
+
     /**
      * Initializes this object for merging. Note that not all redactable signature implementations support mergeing. In
      * this case a {@link UnsupportedOperationException} is thrown.
@@ -302,7 +309,7 @@ public abstract class RedactableSignature {
      *                                      redactable signature algorithm is unable to process the given element.
      */
     public final Identifier addPart(byte[] part, boolean isRedactable) throws RedactableSignatureException {
-        if (state == STATE.SIGN || state == STATE.UPDATE) {
+        if (state == STATE.SIGN || state == STATE.UPDATE || state == STATE.EXTRACTREDACTABLE) {
             return engine.engineAddPart(part, isRedactable);
         }
         throw new RedactableSignatureException("not initialized for signing or updating");
@@ -393,6 +400,20 @@ public abstract class RedactableSignature {
     public final SignatureOutput redact(SignatureOutput signature) throws RedactableSignatureException {
         if (state == STATE.REDACT) {
             return engine.engineRedact(signature);
+        }
+        throw new RedactableSignatureException("not initialized for redaction");
+    }
+
+    /**
+     *
+     * @param signature
+     * @return
+     * @throws RedactableSignatureException
+     */
+    public final SignatureOutput extractRedactable(SignatureOutput signature) throws RedactableSignatureException {
+        if (state == STATE.EXTRACTREDACTABLE) {
+            state = STATE.REDACT;
+            return engine.engineExtractRedactable(signature);
         }
         throw new RedactableSignatureException("not initialized for redaction");
     }
