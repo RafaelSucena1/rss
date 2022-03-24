@@ -1,7 +1,6 @@
 package rss.app.utils.rss;
 
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.Accumulator;
-import de.unipassau.wolfgangpopp.xmlrss.wpprovider.AccumulatorException;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.*;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.*;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
 import org.apache.commons.io.FileUtils;
@@ -13,6 +12,7 @@ import java.security.*;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.List;
 
 public class GLImportRedactablePart {
     private ASN1Sequence mainSequence;
@@ -21,14 +21,20 @@ public class GLImportRedactablePart {
     private GLRSSSignatureOutput.Builder builder;
     private byte[] gsSignature;
     public PublicKey generatedPublic;
+    public GLRSSSignatureOutput signatureOutput;
+    private Accumulator posAccumulator;
 
+    public GLImportRedactablePart(File signatureFile, GLRSSSignatureOutput signatureOutput) throws Exception {
+        this.signatureOutput = signatureOutput;
 
-    public GLImportRedactablePart(File signatureFile) throws Exception {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(FileUtils.readFileToByteArray(signatureFile));
         ASN1InputStream asnInputStream = new ASN1InputStream(byteArrayInputStream);
 
         ASN1Primitive mainASN1Object =  asnInputStream.readObject();
         mainSequence = ASN1Sequence.getInstance(mainASN1Object);
+
+
+        posAccumulator = Accumulator.getInstance("BPA");
 
         gsAccBP = Accumulator.getInstance("BPA");
         handleGeneralKeys();
@@ -39,8 +45,6 @@ public class GLImportRedactablePart {
         GSRSSPublicKey gsrssPublicKey = new GSRSSPublicKey("GSRSSwithRSAandBPA",this.generatedPublic, this.accPublicKey);
         BPPublicKey    accKey         = (BPPublicKey) accPublicKey;
         GLRSSPublicKey glrssPublicKey = new GLRSSPublicKey("GLRSSwithRSAandBPA",(PublicKey) gsrssPublicKey,(PublicKey) accKey);
-
-
 
         return glrssPublicKey;
     }
@@ -162,10 +166,14 @@ public class GLImportRedactablePart {
             /* the witness array for the part */
             ASN1Sequence witnessSequence  = (ASN1Sequence) partSequence.getObjectAt(1);
             Enumeration  witnesses        = witnessSequence.getObjects();
-            DERBitString witnessBitString;
+            byte[]       witness;
+
             do {
-                witnessBitString = (DERBitString) witnesses.nextElement();
-                builder.addWittness(i, witnessBitString.getBytes());
+                witness = ((DERBitString) witnesses.nextElement()).getBytes();
+                if(!witnessIsValid(witness, accumulatorValue)){
+                    break;
+                }
+                builder.addWittness(i, witness);
             } while (witnesses.hasMoreElements());
 
 
@@ -179,6 +187,46 @@ public class GLImportRedactablePart {
         } while (partSequences.hasMoreElements());
 
         return builder;
+    }
+
+
+
+
+    /**
+     * Verifies until part returning the proper index of the part given
+     *  ** the returned index may not be the original one, but it must preserve the original order **
+     * @param signature
+     * @param part
+     * @return
+     * @throws RedactableSignatureException
+     */
+    protected boolean witnessIsValid(byte[] witness, byte[] accumulatorValue) throws RedactableSignatureException {
+        List<GLRSSSignatureOutput.GLRSSSignedPart> parts = signatureOutput.getParts();
+
+
+
+        int validUntil = 0;
+        try {
+            boolean verify = true;
+            GLRSSSignatureOutput.GLRSSSignedPart signedPart;
+            posAccumulator.restoreVerify(part.getAccumulatorValue());
+
+            /** gvwIndex == greatest valid witness index */
+            for (int gvwIndex = 0; gvwIndex < part.getWitnesses().size() && verify; gvwIndex++) {
+                signedPart = ((GLRSSSignatureOutput) signatureOutput).getParts().get(gvwIndex);
+
+                witness = part.getWitnesses().get(gvwIndex).getArray();
+                byte[] randomValue = signedPart.getRandomValue();
+                verify = posAccumulator.verify(witness, randomValue);
+                if(verify) {
+                    validUntil++;
+                }
+            }
+        } catch (AccumulatorException e) {
+            e.printStackTrace();
+        }
+
+        return validUntil;
     }
 
     /**

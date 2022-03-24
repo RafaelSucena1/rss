@@ -2,6 +2,7 @@ package rss.app.utils.rss;
 
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.Accumulator;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.AccumulatorException;
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.SignatureOutput;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.*;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
 import org.apache.commons.io.FileUtils;
@@ -21,11 +22,16 @@ public class GLImportSignature {
     private GLRSSSignatureOutput.Builder builder;
     private byte[] gsSignature;
     public PublicKey generatedPublic;
+    private SignatureOutput signatureOutput;
+    private Accumulator posAccumulator;
 
 
-    public GLImportSignature(File signatureFile) throws Exception {
+    public GLImportSignature(File signatureFile, SignatureOutput signatureOutput) throws Exception {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(FileUtils.readFileToByteArray(signatureFile));
         ASN1InputStream asnInputStream = new ASN1InputStream(byteArrayInputStream);
+
+        this.signatureOutput = signatureOutput;
+        posAccumulator = Accumulator.getInstance("BPA");
 
         ASN1Primitive mainASN1Object =  asnInputStream.readObject();
         mainSequence = ASN1Sequence.getInstance(mainASN1Object);
@@ -39,8 +45,6 @@ public class GLImportSignature {
         GSRSSPublicKey gsrssPublicKey = new GSRSSPublicKey("GSRSSwithRSAandBPA",this.generatedPublic, this.accPublicKey);
         BPPublicKey    accKey         = (BPPublicKey) accPublicKey;
         GLRSSPublicKey glrssPublicKey = new GLRSSPublicKey("GLRSSwithRSAandBPA",(PublicKey) gsrssPublicKey,(PublicKey) accKey);
-
-
 
         return glrssPublicKey;
     }
@@ -149,9 +153,8 @@ public class GLImportSignature {
             partSequence  = (ASN1Sequence) partSequences.nextElement();
 
             ASN1Sequence accRandProofSequence = (ASN1Sequence) partSequence.getObjectAt(0);
-            /** if the i'th parth is redactable */
-            DERBitString isRedactableString = (DERBitString) accRandProofSequence.getObjectAt(0);
-            boolean isRedactable = Arrays.equals(isRedactableString.getBytes(), new byte[] {(byte) 0xFF});
+            /** if the i'th part message */
+            byte[] message = ((DERBitString) accRandProofSequence.getObjectAt(0)).getBytes();
             /** the i'th acccumulator value */
             byte[] accumulatorValue = ((DERBitString) accRandProofSequence.getObjectAt(1)).getBytes();
             /** the i'th random value */
@@ -164,15 +167,18 @@ public class GLImportSignature {
             ASN1Sequence witnessSequence  = (ASN1Sequence) partSequence.getObjectAt(1);
             Enumeration  witnesses        = witnessSequence.getObjects();
             DERBitString witnessBitString;
+            boolean stillValid;
             do {
                 witnessBitString = (DERBitString) witnesses.nextElement();
                 builder.addWittness(i, witnessBitString.getBytes());
+
             } while (witnesses.hasMoreElements());
 
 
-            builder.setRedactable(i, isRedactable)
+            builder.setRedactable(i, true)
                     .setRandomValue(i, randomValue)
                     .setAccValue(i, accumulatorValue)
+                    .setMessagePart(i, message)
                     .setGSProof(i, gsWitness);
 
             i++;

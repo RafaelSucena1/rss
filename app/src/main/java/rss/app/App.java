@@ -7,6 +7,7 @@ package rss.app;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.*;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.GLRSSSignatureOutput;
 import rss.app.utils.pdf.FileByBlocks;
+import rss.app.utils.rss.GLExportRedactablePart;
 import rss.app.utils.rss.GLExportSignature;
 import rss.app.utils.rss.GLImportSignature;
 
@@ -59,6 +60,8 @@ public class App {
 
         rss.initExtractRedactable(glRssKeyPair.getPublic());
         SignatureOutput out  = rss.extractRedactable(signatureOutput);
+        GLExportRedactablePart sigExport = new GLExportRedactablePart( (GLRSSSignatureOutput) out, glRssKeyPair.getPublic());
+        sigExport.exportParts();
         int x= 1;
         return signatureOutput;
     }

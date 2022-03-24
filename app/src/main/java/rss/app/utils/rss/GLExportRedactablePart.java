@@ -8,6 +8,7 @@ import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
 import org.bouncycastle.asn1.*;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +17,9 @@ import java.nio.file.attribute.PosixFileAttributes;
 import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
 import java.security.PublicKey;
+import java.util.Base64;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 public class GLExportRedactablePart {
@@ -25,6 +28,10 @@ public class GLExportRedactablePart {
     private PublicKey accKey;
     private byte[] gsAccumulator;
     private byte[] gsDsigValue;
+    private List<GLRSSSignatureOutput.GLRSSSignedPart> parts;
+    private int maxNbWitnesses;
+
+    private ASN1EncodableVector processedKeysDssAcc;
 
     public GLExportRedactablePart(GLRSSSignatureOutput glrssSignatureOutput, PublicKey glrssPublicKey) {
         this.glrssSignatureOutput = glrssSignatureOutput;
@@ -32,11 +39,17 @@ public class GLExportRedactablePart {
          * get the public keys of the set rss and accumulator
          */
         GSRSSPublicKey gsrssPublicKey = (GSRSSPublicKey) ((GLRSSPublicKey) glrssPublicKey).getGsrssKey();
+        parts = glrssSignatureOutput.getParts();
         dsigKey = gsrssPublicKey.getDSigKey();
         accKey  = ((GLRSSPublicKey) glrssPublicKey).getAccumulatorKey();
 
+        /** returns the maximum number of witnesses in this set of parts */
+        maxNbWitnesses = parts.get(parts.size() - 1).getWitnesses().size();
+
         gsAccumulator = glrssSignatureOutput.getGsAccumulator();
         gsDsigValue   = glrssSignatureOutput.getGsDsigValue();
+
+        processedKeysDssAcc = processKeysDssAcc();
     }
 
 
@@ -44,39 +57,44 @@ public class GLExportRedactablePart {
      * encoding what's in the parts but forgetting the rest
      * @return
      */
-    public ASN1Sequence toDERSequence () {
-        List<GLRSSSignatureOutput.GLRSSSignedPart> parts = glrssSignatureOutput.getParts();
-        /**
-         * prepare to encode as ASN.1
-         */
-        ASN1EncodableVector vector = new ASN1EncodableVector(parts.size());
+    public ASN1Sequence toDERSequence (GLRSSSignatureOutput.GLRSSSignedPart part) {
 
-        for (GLRSSSignatureOutput.GLRSSSignedPart part : parts) {
+        ASN1EncodableVector vectGeneralPart = new ASN1EncodableVector();
+        vectGeneralPart.add(new DERBitString(part.getMessagePart()));
+        vectGeneralPart.add(new DERBitString(part.getAccumulatorValue()));
+        vectGeneralPart.add(new DERBitString(part.getRandomValue()));
+        vectGeneralPart.add(new DERBitString(part.getGsProof()));
 
-            ASN1EncodableVector vectGeneralPart = new ASN1EncodableVector();
-            vectGeneralPart.add(new DERBitString(part.getMessagePart()));
-            vectGeneralPart.add(new DERBitString(part.getAccumulatorValue()));
-            vectGeneralPart.add(new DERBitString(part.getRandomValue()));
-            vectGeneralPart.add(new DERBitString(part.getGsProof()));
+        DERSequence v1 = new DERSequence(vectGeneralPart);
 
-            DERSequence v1 = new DERSequence(vectGeneralPart);
-
-            ASN1EncodableVector witnessesVector = new ASN1EncodableVector();
-            for (ByteArray witness : part.getWitnesses()) {
-                witnessesVector.add(new DERBitString(witness.getArray()));
-            }
-
-            DERSequence v2 = new DERSequence(witnessesVector);
-
-            ASN1EncodableVector vectorPart = new ASN1EncodableVector();
-            vectorPart.add(v1);
-            vectorPart.add(v2);
-
-            vector.add(new DERSequence(vectorPart));
-
+        ASN1EncodableVector witnessesVector = new ASN1EncodableVector();
+        int i = 0;
+        for (ByteArray witness : part.getWitnesses()) {
+            witnessesVector.add(new DERBitString(witness.getArray()));
+            i++;
         }
 
-        return new DERSequence(vector);
+        int witnessSize = part.getWitnesses().get(0).getArray().length;
+
+        byte[] fakeWitness = new byte[witnessSize];
+        /**
+         * the original position in the document should be omitted because it will
+         * provide info about possible other redacted parts
+         */
+        if(i < maxNbWitnesses) {
+            for(; i < maxNbWitnesses; i++) {
+                new Random().nextBytes(fakeWitness);
+                witnessesVector.add(new DERBitString(fakeWitness));
+            }
+        }
+
+        DERSequence v2 = new DERSequence(witnessesVector);
+
+        ASN1EncodableVector vectorPart = new ASN1EncodableVector();
+        vectorPart.add(v1);
+        vectorPart.add(v2);
+
+        return new DERSequence(vectorPart);
     }
 
     /**
@@ -109,32 +127,43 @@ public class GLExportRedactablePart {
         return vector;
     }
 
-    public byte[] getEncoded () throws IOException {
-        ASN1EncodableVector finalVector = new ASN1EncodableVector(2);
+    public byte[] getEncoded() throws IOException {
+        ASN1EncodableVector finalVector = new ASN1EncodableVector(glrssSignatureOutput.getParts().size());
 
-        finalVector.add(new DERSequence(processKeysDssAcc()));
-        finalVector.add(toDERSequence());
+        for(GLRSSSignatureOutput.GLRSSSignedPart part : glrssSignatureOutput.getParts()){
+            ASN1EncodableVector partVector = new ASN1EncodableVector(2);
 
+            partVector.add(new DERSequence(processedKeysDssAcc));
+            partVector.add(toDERSequence(part));
+
+            finalVector.add(new DERSequence(partVector));
+        }
         return (new DERSequence(finalVector)).getEncoded();
     }
 
-    public void setPosixPermissions (File file) throws IOException {
-        Path path = Paths.get(String.valueOf(file));
-        Set<PosixFilePermission> perms = Files.readAttributes(path, PosixFileAttributes.class).permissions();
+    public void exportParts() throws IOException {
+        ASN1EncodableVector partVector;
+        byte[] export;
+        String name;
+        File   newFile;
+        FileOutputStream fileOutputStream;
 
-        System.out.format("Permissions before: %s%n",  PosixFilePermissions.toString(perms));
+        for(GLRSSSignatureOutput.GLRSSSignedPart part : parts) {
+            partVector = new ASN1EncodableVector(2);
 
-        perms.add(PosixFilePermission.OWNER_WRITE);
-        perms.add(PosixFilePermission.OWNER_READ);
-        perms.add(PosixFilePermission.OWNER_EXECUTE);
-        perms.add(PosixFilePermission.GROUP_WRITE);
-        perms.add(PosixFilePermission.GROUP_READ);
-        perms.add(PosixFilePermission.OTHERS_WRITE);
-        perms.add(PosixFilePermission.OTHERS_READ);
-        Files.setPosixFilePermissions(path, perms);
+            partVector.add(new DERSequence(processedKeysDssAcc));
+            partVector.add(toDERSequence(part));
 
-        System.out.format("Permissions after:  %s%n",  PosixFilePermissions.toString(perms));
+            export = (new DERSequence(partVector)).getEncoded();
+            name = Base64.getEncoder().encodeToString(part.getRandomValue());
+            newFile = new File("app/testdata/part-" + name  + ".sig");
+            System.out.println(name);
+            newFile.createNewFile();
 
+            fileOutputStream = new FileOutputStream(newFile);
+            fileOutputStream.write(export);
+            fileOutputStream.close();
+        }
     }
 
 }
