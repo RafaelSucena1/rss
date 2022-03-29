@@ -57,7 +57,8 @@ public class App {
         }
 
         SignatureOutput signatureOutput = rss.sign();
-
+        GLExportSignature exporter = new GLExportSignature((GLRSSSignatureOutput) signatureOutput, publicKey);
+        byte[] encodedBeforeRedact = exporter.getEncoded();
         rss.initExtractRedactable(glRssKeyPair.getPublic());
         SignatureOutput out  = rss.extractRedactable(signatureOutput);
         GLExportRedactablePart sigExport = new GLExportRedactablePart( (GLRSSSignatureOutput) out, glRssKeyPair.getPublic());
@@ -101,11 +102,7 @@ public class App {
         }
         return finalVariable;
     }
-    private SignatureOutput importSignature(String doc, String signFile) throws Exception {
-        GLImportSignature glImportSignature = new GLImportSignature(new File(signFile));
-        this.importedPublicKey = glImportSignature.getPublicKey();
-        return glImportSignature.getSignatureOutput(getBytes(doc));
-    }
+
 
     private void exportSignature() throws Exception {
         System.out.println("reached exportSignature");

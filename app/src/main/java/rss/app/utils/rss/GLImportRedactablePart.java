@@ -5,11 +5,13 @@ import de.unipassau.wolfgangpopp.xmlrss.wpprovider.grss.*;
 import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
 import org.apache.commons.io.FileUtils;
 import org.bouncycastle.asn1.*;
+import rss.app.utils.rss.IORssExceptions.RssImportPartException;
 
 import java.io.*;
 import java.math.BigInteger;
 import java.security.*;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
@@ -144,90 +146,97 @@ public class GLImportRedactablePart {
             throw new Exception("There are no parts presented");
         }
 
+        List<GLRSSSignatureOutput.GLRSSSignedPart> parts = new ArrayList<GLRSSSignatureOutput.GLRSSSignedPart>(signatureOutput.getParts());
 
         GLRSSSignatureOutput.Builder builder = new GLRSSSignatureOutput.Builder(partsSequence.size());
         Enumeration partSequences = partsSequence.getObjects();
-        ASN1Sequence partSequence;
-        int i = 0;
-        do {
-            partSequence  = (ASN1Sequence) partSequences.nextElement();
 
-            ASN1Sequence accRandProofSequence = (ASN1Sequence) partSequence.getObjectAt(0);
-            /** get the message */
-            byte[] message = ((DERBitString) accRandProofSequence.getObjectAt(0)).getBytes();
-            /** the i'th acccumulator value */
-            byte[] accumulatorValue = ((DERBitString) accRandProofSequence.getObjectAt(1)).getBytes();
-            /** the i'th random value */
-            byte[] randomValue      = ((DERBitString) accRandProofSequence.getObjectAt(2)).getBytes();
-            /** the i'th witness */
-            byte[] gsWitness        = ((DERBitString) accRandProofSequence.getObjectAt(3)).getBytes();
+        /** we are assuming that we will import just one part */
+        ASN1Sequence partSequence  = (ASN1Sequence) partSequences.nextElement();
 
+        ASN1Sequence accRandProofSequence = (ASN1Sequence) partSequence.getObjectAt(0);
+        /** get the message */
+        byte[] message = ((DERBitString) accRandProofSequence.getObjectAt(0)).getBytes();
+        /** the i'th acccumulator value */
+        byte[] accumulatorValue = ((DERBitString) accRandProofSequence.getObjectAt(1)).getBytes();
+        /** the i'th random value */
+        byte[] randomValue      = ((DERBitString) accRandProofSequence.getObjectAt(2)).getBytes();
+        /** the i'th witness */
+        byte[] gsWitness        = ((DERBitString) accRandProofSequence.getObjectAt(3)).getBytes();
 
-            /* the witness array for the part */
-            ASN1Sequence witnessSequence  = (ASN1Sequence) partSequence.getObjectAt(1);
-            Enumeration  witnesses        = witnessSequence.getObjects();
-            byte[]       witness;
-
-            do {
-                witness = ((DERBitString) witnesses.nextElement()).getBytes();
-                if(!witnessIsValid(witness, accumulatorValue)){
-                    break;
-                }
-                builder.addWittness(i, witness);
-            } while (witnesses.hasMoreElements());
+        /* the witness array for the part */
+        ASN1Sequence witnessSequence  = (ASN1Sequence) partSequence.getObjectAt(1);
+        Enumeration  witnesses        = witnessSequence.getObjects();
+        byte[]       witness;
 
 
-            builder.setRedactable(i, true)
-                    .setRandomValue(i, randomValue)
-                    .setAccValue(i, accumulatorValue)
-                    .setMessagePart(i, message)
-                    .setGSProof(i, gsWitness);
+        byte[][] witnessesToInsert = new byte[witnessSequence.size()][];
+        int insertIndex = 0;
+        boolean beforePart = true;
+        for(int i = 0; i < parts.size() && beforePart; i++){
+            witness = ((DERBitString) witnesses.nextElement()).getBytes();
+            beforePart = externalPartAfterIndex(i, witness, accumulatorValue);
+            witnessesToInsert[i] = Arrays.copyOf(witness, witness.length);
+            insertIndex++;
+        }
 
-            i++;
-        } while (partSequences.hasMoreElements());
+        int index = 0;
+        for(GLRSSSignatureOutput.GLRSSSignedPart part : parts) {
+            if(index != insertIndex) {
+                builder.setMessagePart(index,part.getMessagePart())
+                        .setRedactable(index, part.isRedactable())
+                        .setAccValue(index, part.getAccumulatorValue())
+                        .setRandomValue(index, part.getRandomValue())
+                        .setWitnesses(index, part.getWitnesses());
+            } else {
+                builder.addWittness(index, witnessesToInsert[index])
+                        .setRedactable(index, true)
+                        .setRandomValue(index, randomValue)
+                        .setAccValue(index, accumulatorValue)
+                        .setMessagePart(index, message)
+                        .setGSProof(index, gsWitness);
+            }
+
+            index++;
+        }
 
         return builder;
     }
 
 
-
-
     /**
-     * Verifies until part returning the proper index of the part given
-     *  ** the returned index may not be the original one, but it must preserve the original order **
+     * returns true if all random values of given SignatureOutput
+     * before the index i
+     * are valid for the part we are trying to insert
      * @param signature
      * @param part
      * @return
      * @throws RedactableSignatureException
      */
-    protected boolean witnessIsValid(byte[] witness, byte[] accumulatorValue) throws RedactableSignatureException {
+    protected boolean externalPartAfterIndex(int i, byte[] witness, byte[] accumulatorValue) throws RedactableSignatureException, RssImportPartException {
         List<GLRSSSignatureOutput.GLRSSSignedPart> parts = signatureOutput.getParts();
 
+        /** gvwIndex == greatest valid witness index */
+        int gvwIndex = 0;
 
-
-        int validUntil = 0;
         try {
             boolean verify = true;
             GLRSSSignatureOutput.GLRSSSignedPart signedPart;
-            posAccumulator.restoreVerify(part.getAccumulatorValue());
+            posAccumulator.restoreVerify(accumulatorValue);
 
-            /** gvwIndex == greatest valid witness index */
-            for (int gvwIndex = 0; gvwIndex < part.getWitnesses().size() && verify; gvwIndex++) {
-                signedPart = ((GLRSSSignatureOutput) signatureOutput).getParts().get(gvwIndex);
+            for (; verify; gvwIndex++) {
+                signedPart = parts.get(gvwIndex);
 
-                witness = part.getWitnesses().get(gvwIndex).getArray();
                 byte[] randomValue = signedPart.getRandomValue();
                 verify = posAccumulator.verify(witness, randomValue);
-                if(verify) {
-                    validUntil++;
-                }
             }
         } catch (AccumulatorException e) {
             e.printStackTrace();
         }
 
-        return validUntil;
+        return gvwIndex > i;
     }
+
 
     /**
      * provide the array of strings and
@@ -254,16 +263,5 @@ public class GLImportRedactablePart {
         builder.embedGSOutput(gsrssSignatureOutput);
 
         return builder.build();
-    }
-
-    /**
-     * helper function : concatenates all as byte[]
-     * @param messagePart
-     * @param accumulatorValue
-     * @param randomValue
-     * @return
-     */
-    static byte[] concat(byte[] messagePart, byte[] accumulatorValue, byte[] randomValue) {
-        return new ByteArray(messagePart).concat(accumulatorValue).concat(randomValue).getArray();
     }
 }

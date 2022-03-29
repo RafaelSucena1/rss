@@ -131,10 +131,11 @@ public class GLExportRedactablePart {
         ASN1EncodableVector finalVector = new ASN1EncodableVector(glrssSignatureOutput.getParts().size());
 
         for(GLRSSSignatureOutput.GLRSSSignedPart part : glrssSignatureOutput.getParts()){
-            ASN1EncodableVector partVector = new ASN1EncodableVector(2);
+            ASN1EncodableVector partVector = new ASN1EncodableVector(3);
 
             partVector.add(new DERSequence(processedKeysDssAcc));
             partVector.add(toDERSequence(part));
+            partVector.add(/** @todo add all removed wintnesses */);
 
             finalVector.add(new DERSequence(partVector));
         }
