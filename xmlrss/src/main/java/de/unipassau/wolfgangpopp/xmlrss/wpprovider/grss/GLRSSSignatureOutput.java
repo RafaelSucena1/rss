@@ -206,6 +206,7 @@ public class GLRSSSignatureOutput implements SignatureOutput {
 
     public static class GLRSSSignedPart {
 
+        private boolean wasTransformed;
         private byte[] messagePart;
         private byte[] randomValue;
         private byte[] accumulatorValue;

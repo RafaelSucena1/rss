@@ -65,6 +65,8 @@ public abstract class GSRedactableSignature extends RedactableSignatureSpi {
     private PrivateKey dsigPrivateKey;
     private KeyPair dsigkeyPair;
     private KeyPair acckeyPair;
+    private Set<ByteArray> toTransform = new HashSet<>();;
+    private final String missingNo = "□□□□□□□□□□□";
 
     protected GSRedactableSignature(Accumulator accumulator, Signature dsig) {
         this.accumulator = accumulator;
@@ -100,8 +102,23 @@ public abstract class GSRedactableSignature extends RedactableSignatureSpi {
     }
 
     @Override
+    protected void engineInitTransform(PublicKey publicKey) throws InvalidKeyException {
+        reset();
+        checkAndSetPublicKey(publicKey);
+    }
+
+    @Override
     protected Identifier engineAddPart(byte[] part, boolean isRedactable) throws RedactableSignatureException {
         if (messageParts.put(new ByteArray(part), isRedactable) != null) {
+            throw new RedactableSignatureException(
+                    "This algorithm is set based and therefore does not support duplicates");
+        }
+        return new Identifier(part);
+    }
+
+    @Override
+    protected Identifier engineAddPartToTransform(byte[] part) throws RedactableSignatureException {
+        if (toTransform.add(new ByteArray(part))) {
             throw new RedactableSignatureException(
                     "This algorithm is set based and therefore does not support duplicates");
         }
@@ -229,6 +246,37 @@ public abstract class GSRedactableSignature extends RedactableSignatureSpi {
 
         for (ByteArray part : parts) {
             if (!messageParts.keySet().contains(part)) {
+                builder.addSignedPart(part, signedParts.get(part), signatureOutput.isRedactable(new Identifier(part)));
+            }
+        }
+
+        messageParts.clear();
+
+        return builder.build();
+    }
+
+    @Override
+    protected SignatureOutput engineTransform(SignatureOutput signature) throws RedactableSignatureException {
+        if (!(signature instanceof GSRSSSignatureOutput)) {
+            throw new RedactableSignatureException("wrong signature type");
+        }
+        GSRSSSignatureOutput signatureOutput = (GSRSSSignatureOutput) signature;
+        GSRSSSignatureOutput.Builder builder = new GSRSSSignatureOutput.Builder();
+        Map<ByteArray, byte[]> signedParts = signatureOutput.getParts();
+        Set<ByteArray> parts = signedParts.keySet();
+        Set<ByteArray> nonRedactableParts = signatureOutput.getNonRedactableParts();
+
+        builder.setDSigValue(signatureOutput.getDSigValue())
+                .setAccumulatorValue(signatureOutput.getAccumulatorValue());
+
+        for (ByteArray messagePart : toTransform) {
+            if (nonRedactableParts.contains(messagePart)) {
+                throw new RedactableSignatureException("Cannot perform the redaction since a given part is not redactable");
+            }
+        }
+
+        for (ByteArray part : parts) {
+            if (!toTransform.contains(part)) {
                 builder.addSignedPart(part, signedParts.get(part), signatureOutput.isRedactable(new Identifier(part)));
             }
         }

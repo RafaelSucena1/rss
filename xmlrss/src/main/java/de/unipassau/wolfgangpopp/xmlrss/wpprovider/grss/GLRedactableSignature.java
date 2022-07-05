@@ -57,6 +57,7 @@ public abstract class GLRedactableSignature extends RedactableSignatureSpi {
     private final List<ByteArray> parts = new ArrayList<>();
     private final List<Boolean> isRedactable = new ArrayList<>();
     private final Set<Identifier> identifiers = new HashSet<>();
+    private final Set<Identifier> toTransform = new HashSet<>();
     private PrivateKey gsrssPrivateKey;
     private PrivateKey accPrivateKey;
     private PublicKey gsrssPublicKey;
@@ -108,9 +109,22 @@ public abstract class GLRedactableSignature extends RedactableSignatureSpi {
     }
 
     @Override
+    protected void engineInitTransform(PublicKey publicKey) throws InvalidKeyException {
+        reset();
+        checkAndSetPublicKey(publicKey);
+        gsrss.initTransform(gsrssPublicKey);
+    }
+
+    @Override
     protected Identifier engineAddPart(byte[] part, boolean isRedactable) throws RedactableSignatureException {
         this.parts.add(new ByteArray(part));
         this.isRedactable.add(isRedactable);
+        return new Identifier(part, parts.size() - 1);
+    }
+
+    @Override
+    protected Identifier engineAddPartToTransform(byte[] part) throws RedactableSignatureException {
+        this.toTransform.add(new ByteArray(part));
         return new Identifier(part, parts.size() - 1);
     }
 
@@ -235,6 +249,58 @@ public abstract class GLRedactableSignature extends RedactableSignatureSpi {
         builder.embedGSOutput((GSRSSSignatureOutput) gsrss.redact(original.extractGSOutput()));
 
         identifiers.clear();
+
+        return builder.build();
+    }
+
+    /**
+     * this function takes care of changing some previously chosen parts to "□□□□□□□□□□□"
+     * relative to the GL part
+     *
+     * @param signature
+     * @return
+     * @throws RedactableSignatureException
+     */
+    @Override
+    protected SignatureOutput engineTransform(SignatureOutput signature) throws RedactableSignatureException {
+        if (!(signature instanceof GLRSSSignatureOutput)) {
+            throw new RedactableSignatureException("wrong signature type");
+        }
+
+        GLRSSSignatureOutput original = (GLRSSSignatureOutput) signature;
+        List<GLRSSSignatureOutput.GLRSSSignedPart> parts = ((GLRSSSignatureOutput) signature).getParts();
+        int size = parts.size() - toTransform.size();
+        GLRSSSignatureOutput.Builder builder = new GLRSSSignatureOutput.Builder(size);
+
+        int builderIndex = 0;
+        for (int i = 0; i < parts.size(); i++) {
+            GLRSSSignatureOutput.GLRSSSignedPart part = parts.get(i);
+            if (!isIdentified(i, part)) {
+                ArrayList<ByteArray> copy = new ArrayList<>(part.getWitnesses());
+                removeWitnesses(copy);
+
+                builder.setMessagePart(builderIndex, part.getMessagePart())
+                        .setRedactable(builderIndex, part.isRedactable())
+                        .setRandomValue(builderIndex, part.getRandomValue())
+                        .setAccValue(builderIndex, part.getAccumulatorValue())
+                        .setWitnesses(builderIndex, copy)
+                        .setToTransform(builderIndex, isToTransform);
+
+                ++builderIndex;
+            }
+        }
+
+        // redact gsrss signature output
+        for (Identifier identifier : toTransform) {
+            GLRSSSignatureOutput.GLRSSSignedPart part = parts.get(identifier.getPosition());
+            ByteArray concat = new ByteArray(part.getMessagePart()).concat(part.getAccumulatorValue())
+                    .concat(part.getRandomValue());
+            gsrss.addIdentifier(new Identifier(concat));
+        }
+
+        builder.embedGSOutput((GSRSSSignatureOutput) gsrss.redact(original.extractGSOutput()));
+
+        toTransform.clear();
 
         return builder.build();
     }

@@ -20,6 +20,8 @@
 
 package de.unipassau.wolfgangpopp.xmlrss.wpprovider;
 
+import de.unipassau.wolfgangpopp.xmlrss.wpprovider.utils.ByteArray;
+
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -71,6 +73,14 @@ public abstract class RedactableSignatureSpi {
     protected abstract void engineInitRedact(PublicKey publicKey) throws InvalidKeyException;
 
     /**
+     * initializes this object to transformation  (instead of redact, leave a link there)
+     *
+     * @param publicKey
+     * @throws InvalidKeyException
+     */
+    protected abstract void engineInitTransform(PublicKey publicKey) throws InvalidKeyException;
+
+    /**
      * Initializes this redactable signature engine for merging.
      * <p>
      * Overriding this method is optional, since not all redactable signature schemes support merging. The default
@@ -106,6 +116,16 @@ public abstract class RedactableSignatureSpi {
      *                                      algorithm
      */
     protected abstract Identifier engineAddPart(byte[] part, boolean isRedactable) throws RedactableSignatureException;
+
+    /**
+     * Sets message part to be transformed to a icon declaring it missing
+     *
+     * @param part         the message part
+     * @return an Identifier that identifies the added element in the SignatureOutput
+     * @throws RedactableSignatureException if the given part cannot be processed. E.g. a duplicate in set based
+     *                                      algorithm
+     */
+    protected abstract Identifier engineAddPartToTransform(byte[] part) throws RedactableSignatureException;
 
     /**
      * Identifies an element that is going to be redacted.
@@ -150,6 +170,15 @@ public abstract class RedactableSignatureSpi {
      * @throws RedactableSignatureException if this engine cannot process the given data
      */
     protected abstract SignatureOutput engineRedact(SignatureOutput signature) throws RedactableSignatureException;
+
+    /**
+     * instead of just removing from the document it substitutes by links
+     *
+     * @param signature
+     * @return
+     * @throws RedactableSignatureException
+     */
+    protected abstract SignatureOutput engineTransform(SignatureOutput signature) throws RedactableSignatureException;
 
     /**
      * Merges the two given signatures.

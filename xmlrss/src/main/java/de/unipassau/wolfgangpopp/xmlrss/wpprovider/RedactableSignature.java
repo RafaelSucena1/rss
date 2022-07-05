@@ -86,7 +86,7 @@ public abstract class RedactableSignature {
     private static final String TYPE = "RedactableSignature";
 
     private enum STATE {
-        UNINITIALIZED, SIGN, REDACT, VERIFY, UPDATE, MERGE
+        UNINITIALIZED, SIGN, REDACT, VERIFY, UPDATE, MERGE, TRANSFORM
     }
 
     /**
@@ -257,6 +257,17 @@ public abstract class RedactableSignature {
     }
 
     /**
+     * initializes this object to transformation  (instead of redact, leave a link there)
+     *
+     * @param publicKey
+     * @throws InvalidKeyException
+     */
+    public final void initTransform(PublicKey publicKey) throws InvalidKeyException {
+        state = STATE.TRANSFORM;
+        engine.engineInitTransform(publicKey);
+    }
+
+    /**
      * Initializes this object for merging. Note that not all redactable signature implementations support mergeing. In
      * this case a {@link UnsupportedOperationException} is thrown.
      * <p>
@@ -395,6 +406,19 @@ public abstract class RedactableSignature {
             return engine.engineRedact(signature);
         }
         throw new RedactableSignatureException("not initialized for redaction");
+    }
+
+    /**
+     * substitutes by links
+     * @param signature
+     * @return
+     * @throws RedactableSignatureException
+     */
+    public final SignatureOutput transform(SignatureOutput signature) throws RedactableSignatureException {
+        if (state == STATE.TRANSFORM) {
+            return engine.engineTransform(signature);
+        }
+        throw new RedactableSignatureException("not initialized for transformation");
     }
 
     /**
